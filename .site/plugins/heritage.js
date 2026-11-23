@@ -18,7 +18,7 @@ function build() {
   const notes = v.notes.filter(n => n.folder.startsWith('heritage') && n.data.heritage_type);
 
   const branches = notes.filter(n => n.data.heritage_type === 'branch').map(n => ({
-    id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url
+    id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url, short_hook: n.data.short_hook || ''
   }));
   const branchTitles = new Set(branches.map(b => b.title));
 

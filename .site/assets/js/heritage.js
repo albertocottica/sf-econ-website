@@ -249,7 +249,7 @@
     apply();
     if (state.branch) {
       var bRaw = D.branches.find(function (b) { return b.title === bn; });
-      var bData = { type: 'branch', title: bn, branch: bn, url: bRaw ? bRaw.url : null,
+      var bData = { type: 'branch', title: bn, branch: bn, url: bRaw ? bRaw.url : null, short_hook: bRaw ? bRaw.short_hook : '',
         sub_branches: (clustersByBranch[bn] || []).map(function (c) { return c.title; }) };
       showInfo(bData);
     } else document.getElementById('treeInfo').innerHTML = '<p class="hint">Click a node to read why it is here.</p>';

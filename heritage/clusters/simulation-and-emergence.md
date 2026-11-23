@@ -1,5 +1,5 @@
 ---
-title: "Simulation emergence"
+title: "Simulation and emergence"
 type: heritage
 heritage_type: "cluster"
 branch: "The Pluriversity"
