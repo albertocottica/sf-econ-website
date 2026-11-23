@@ -7,7 +7,7 @@ summary: "Economist and network scientist; works on online collaboration, collec
 role: "Principal"
 group: Principals
 order: 1
-headline: "Economist and network scientist, UNDP"
+headline: "Economist and network scientist, Edgeryders"
 photo: assets/people/alberto-cottica.jpg
 tags: [principal]
 ---
@@ -16,4 +16,4 @@ Alberto Cottica is an economist and network scientist who works with the United 
 
 ## What they bring
 
-Participatory research community, network methods, coalition building, inroads into the UN structure.
+Participatory research community, network methods, coalition building, access to the global constituency for deep economic reform.

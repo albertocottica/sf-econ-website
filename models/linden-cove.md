@@ -8,7 +8,7 @@ summary: "A toy small-town economy with twelve causal links. Its purpose is to s
 repo: ""
 ---
 
-Linden Cove is a toy a small town economy with twelve causal links: rent, tax and a shared budget on one side, weather and markets on the other. Its purpose is to show how simulation models can help interpret different policy choices.
+Linden Cove is a toy model of a small town economy with twelve causal links: rent, tax and a shared budget on one side, weather and markets on the other. Its purpose is not realism, but to show how simulation models can help interpret different policy choices.
 
 1. Higher rent moves money from workers to owners, who spend less of it in town, so shops sell less.
 2. Higher rent also lowers what workers keep, so fewer people move in and some leave.
