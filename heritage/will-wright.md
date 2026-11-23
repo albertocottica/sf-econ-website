@@ -4,7 +4,7 @@ type: heritage
 heritage_type: "person"
 branches:
   - branch: "The Pluriversity"
-    sub_branch: "Simulation emergence"
+    sub_branch: "Simulation and emergence"
 profession: "Game Designer"
 short_hook: "SimCity and The Sims — complex systems as toys for thinking"
 nominated_by: ["alberto", "yudha"]

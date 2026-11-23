@@ -4,7 +4,7 @@ type: heritage
 heritage_type: "person"
 branches:
   - branch: "The Pluriversity"
-    sub_branch: "Simulation emergence"
+    sub_branch: "Simulation and emergence"
 profession: "Cliodynamicist"
 short_hook: "Cliodynamics — history as a dynamical system, cycles as prediction"
 nominated_by: ["alberto", "yudha"]

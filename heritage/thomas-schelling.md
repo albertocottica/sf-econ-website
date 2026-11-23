@@ -4,7 +4,7 @@ type: heritage
 heritage_type: "person"
 branches:
   - branch: "The Pluriversity"
-    sub_branch: "Simulation emergence"
+    sub_branch: "Simulation and emergence"
 profession: "Modeller"
 short_hook: "Micromotives and Macrobehavior — segregation from mild preferences"
 nominated_by: ["alberto", "yudha"]

@@ -4,7 +4,7 @@ type: heritage
 heritage_type: "person"
 branches:
   - branch: "The Pluriversity"
-    sub_branch: "Simulation emergence"
+    sub_branch: "Simulation and emergence"
 profession: "Economist"
 short_hook: "Increasing Returns and Path Dependence — history matters, lock-in is real"
 nominated_by: ["alberto"]
