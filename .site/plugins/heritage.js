@@ -18,14 +18,18 @@ function build() {
   const notes = v.notes.filter(n => n.folder.startsWith('heritage') && n.data.heritage_type);
 
   const branches = notes.filter(n => n.data.heritage_type === 'branch').map(n => ({
-    id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url
+    id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url, short_hook: n.data.short_hook || ''
   }));
   const branchTitles = new Set(branches.map(b => b.title));
 
-  const clusters = notes.filter(n => n.data.heritage_type === 'cluster').map(n => ({
-    id: slugify(n.data.sub_branch), title: n.data.sub_branch, branch: n.data.branch,
-    color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url
-  }));
+  const clusters = notes.filter(n => n.data.heritage_type === 'cluster').map(n => {
+    const branchNote = notes.find(bn => bn.data.heritage_type === 'branch' && bn.data.branch === n.data.branch);
+    return {
+      id: slugify(n.data.sub_branch), title: n.data.sub_branch, branch: n.data.branch,
+      color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url, short_hook: n.data.short_hook || '',
+      branch_url: branchNote ? branchNote.url : null
+    };
+  });
   const clusterById = new Map(clusters.map(c => [c.id, c]));
 
   const thinkers = notes.filter(n => n.data.heritage_type === 'person').map(n => ({

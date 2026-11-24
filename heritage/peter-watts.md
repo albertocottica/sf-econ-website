@@ -4,7 +4,7 @@ type: heritage
 heritage_type: "person"
 branches:
   - branch: "The Pluriversity"
-    sub_branch: "Simulation emergence"
+    sub_branch: "Simulation and emergence"
 profession: "SFF Author"
 short_hook: "Blindsight — consciousness as a bug, not a feature, in evolved intelligence"
 nominated_by: ["yudha"]

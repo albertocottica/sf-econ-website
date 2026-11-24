@@ -21,10 +21,11 @@ if(p&&ok[p])document.documentElement.setAttribute('data-palette',p);}catch(e){}}
   <a class="logo" href="{{ '/' | rel(page.url) }}"><i>Sci-Fi</i> Economics Lab</a>
   <nav aria-label="Main">
     <a href="{{ '/' | rel(page.url) }}#run">Run the town</a>
-    <a href="{{ '/' | rel(page.url) }}#method">How we work</a>
-    <a href="{{ '/heritage/' | rel(page.url) }}"{% if page.url == '/heritage/' %} aria-current="page"{% endif %}>Heritage</a>
+    <a href="{{ '/' | rel(page.url) }}#why">Why</a>
+    <a href="{{ '/' | rel(page.url) }}#method">How</a>
     <a href="{{ '/work/' | rel(page.url) }}"{% if page.url == '/work/' %} aria-current="page"{% endif %}>Our work</a>
-    <a href="{{ '/' | rel(page.url) }}#join">Work with us</a>
+    <a href="{{ '/heritage/' | rel(page.url) }}"{% if page.url == '/heritage/' %} aria-current="page"{% endif %}>Heritage</a>
+    <a href="{{ '/' | rel(page.url) }}#join">Collaborate</a>
     <a href="{{ '/people/' | rel(page.url) }}"{% if page.url == '/people/' %} aria-current="page"{% endif %}>People</a>
   </nav>
 </div></header>

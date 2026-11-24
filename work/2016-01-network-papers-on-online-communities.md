@@ -3,7 +3,7 @@ title: "Network papers on online communities"
 type: work
 stage: sapling
 status: working
-summary: "Smantic social networks"
+summary: "Semantic social networks: a quali-quantitative method for finding emergent consensus in large ethnographic corpora."
 period: "2016 to 2023"
 start: 2016-01
 kind: publication
@@ -18,7 +18,7 @@ tags: [showcase]
 
 ## What it is
 
-A line of research by Alberto Cottica on reading online conversations as networks. A 2017 paper, Semantic social networks: a new approach to scaling digital ethnography, proposes treating online conversations as communities and representing them, with fieldnotes, as networks of key concepts and their associations as participants perceive them, then analysing them with network science. It was applied to a large conversation about community-provided health and social care.
+A line of research led by Alberto Cottica on reading online conversations as networks. A 2020 paper, _Semantic social networks: a new approach to scaling digital ethnography_, proposes treating online conversations as communities and representing them as networks of key concepts and their associations as participants perceive them. These networks are then analyzed with methods from network science in order to detect conceptual constructs where the participants converge. It was applied to several large ethnographic corpora between 2020 and 2027, on various issues: among them, community-provided health and social care, European digital policy, the rise of populist politics in Europe, innovation in methods of political participation, economic reform as perceived by professional politicians. 
 
 ## What we did
 

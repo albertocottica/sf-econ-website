@@ -4,7 +4,7 @@ type: heritage
 heritage_type: "person"
 branches:
   - branch: "The Pluriversity"
-    sub_branch: "Simulation emergence"
+    sub_branch: "Simulation and emergence"
 profession: "Game Designer"
 short_hook: "RimWorld — emergent storytelling from simulated psychology and ecology"
 nominated_by: ["alberto", "yudha"]

@@ -5,7 +5,7 @@ heritage_type: "person"
 branches:
   - branch: "The Chemical Wedding"
     sub_branch: "Flows and capacities"
-profession: "Industrial Ecologist"
+profession: "Ecological Economist"
 short_hook: "Decent living standards within planetary boundaries — the energy-service nexus"
 nominated_by: ["alberto", "yudha"]
 status: "agreed"
