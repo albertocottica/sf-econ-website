@@ -73,7 +73,6 @@ work/                     one note per piece of work, plus index.md for the list
 people/                   one note per person, plus index.md for the People page
 heritage/                 the family tree of ideas, one note per node
 method/                   the How we work steps and process pages
-sources/                  one note per cited source
 models/                   write-ups of the town model
 offers/                   the Work with us cards
 copy/                     text blocks pulled into the landing page

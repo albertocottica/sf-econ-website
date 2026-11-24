@@ -42,7 +42,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.on('eleventy.before', () => {
     reset(); const v = load();
     if (v.missing.length) console.warn('[warn] unresolved wikilinks:\n  ' + v.missing.join('\n  '));
-    if (v.duplicateTitles.length) console.warn('[warn] duplicate note titles resolve to the first match:\n  ' + v.duplicateTitles.map(d => `${d.title}: ${d.rels.join(', ')}`).join('\n  '));
+    if (v.duplicateTitles.length) console.warn('[warn] duplicate note titles (bare links prefer people/, then work/, offers/, ...):\n  ' + v.duplicateTitles.map(d => `${d.title}: ${d.rels.join(', ')}`).join('\n  '));
   });
 
   return {

@@ -5,7 +5,7 @@ The Sci-Fi Economics Lab site is a folder of Markdown notes that Eleventy compil
 | Guide | Read it when you want to |
 |---|---|
 | [Building and running](building.md) | Install, compile, preview, test or publish the site |
-| [Editing content](editing.md) | Add or change people, work entries, heritage nodes, method steps, sources and copy |
+| [Editing content](editing.md) | Add or change people, work entries, heritage nodes, method steps and copy |
 | [Maintaining the site](maintaining.md) | Change palettes, logos and settings, regenerate images, and fix common problems |
 
 ## The short version

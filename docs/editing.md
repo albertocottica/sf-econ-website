@@ -35,7 +35,7 @@ Body text in Markdown.
 | Field | Meaning |
 |---|---|
 | `title` | Page title |
-| `type` | `note`, `person`, `work`, `model`, `place`, `concept`, `essay`, `source`, `heritage`, `method` or `offer` |
+| `type` | `note`, `person`, `work`, `model`, `place`, `concept`, `essay`, `heritage`, `method` or `offer` |
 | `stage` | Growth stage: `seedling`, `sapling` or `evergreen`. Shown as a badge |
 | `status` | How settled the claim is: `speculative`, `working` or `settled`. Shown as a badge |
 | `summary` | One sentence for cards, previews and the page's lead |
@@ -53,10 +53,12 @@ Link to another note by its title or file name, without the folder or extension:
 | Write | Result |
 |---|---|
 | `[[Alberto Cottica]]` | Link using the note's title |
-| `[[alberto-cottica\|Alberto]]` | Link with your own wording |
+| `[[people/alberto-cottica\|Alberto]]` | Link with your own wording, or to disambiguate when two notes share a title |
 | `[[overview#Step 1]]` | Link to a heading |
 
 Linked notes list each other automatically in a "Linked from" block. A link that matches no note is printed in the build warnings.
+
+Titles should be unique. If two notes do share a title, a bare link resolves to the highest-priority folder (`people/`, then `work/`, `offers/`, …); use a folder-prefixed link to be explicit.
 
 ## Work entries
 
@@ -162,24 +164,6 @@ tone: leaf                            # colour of the node
 - `next` and `edge_label` must have the same number of items. Each label sits on the line to the matching next step.
 - Steps are ordered by `step`. Changing a step number or its links changes the chart, so check the animation after any edit.
 - The body of each note is the text shown under "Open the note". The summary is what appears on the chart.
-
-## Sources
-
-Folder: `sources/`. One note per source you cite.
-
-```yaml
----
-title: "Edgeryders"
-type: source
-url: "https://edgeryders.eu"
-accessed: 2026-11-02
-author: ""
-published: ""
-archived: false
----
-```
-
-Tag a source `needs-url` if you have not found its link yet.
 
 ## Landing page text
 

@@ -40,7 +40,6 @@ Everything the visitor sees comes from **Markdown notes** in these folders:
 | `models/` | Economic models (Linden Cove, etc.) | `title`, `calibrated`, `repo` |
 | `copy/` | Reusable text snippets (hero, process name, etc.) | `title`, `summary` |
 | `offers/` | Ways to work with the Lab | `title`, `summary` |
-| `sources/` | Bibliography / references | `title`, `url`, `accessed` |
 
 **Frontmatter fields** are documented in [`templates/`](templates/) and [`docs/editing.md`](docs/editing.md).
 
@@ -154,7 +153,7 @@ npm run build
 | Guide | Purpose |
 |-------|---------|
 | [`docs/building.md`](docs/building.md) | Install, compile, preview, test, publish |
-| [`docs/editing.md`](docs/editing.md) | Add/change content (work, people, heritage, method, sources, copy) |
+| [`docs/editing.md`](docs/editing.md) | Add/change content (work, people, heritage, method, copy) |
 | [`docs/maintaining.md`](docs/maintaining.md) | Palettes, logos, settings, regenerate images, troubleshooting |
 | [`docs/preview.md`](docs/preview.md) | Preview deployment options |
 
@@ -177,7 +176,6 @@ npm run build
 ├── models/               # Model documentation
 ├── offers/               # Ways to work with us
 ├── people/               # Team members
-├── sources/              # Bibliography
 ├── work/                 # Work entries (projects, games, publications)
 ├── templates/            # Frontmatter templates for new content
 ├── model/                # Economic model (Python reference + JS port + tests)
