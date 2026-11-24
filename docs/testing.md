@@ -146,6 +146,7 @@ Keep the existing permissions and jobs.
 - [ ] People: groups and order look right, photos load.
 - [ ] Palette switcher changes the colours and survives a reload.
 - [ ] Narrow viewport: navigation, town deck, heritage fallback list, and work cards are usable.
+- [ ] `/one-planet-one-humanity/` loads, keeps its image credit and registration links, and is absent from the navigation and the Our work grid.
 - [ ] No console errors.
 
 ## Adding tests

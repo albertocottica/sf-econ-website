@@ -197,6 +197,7 @@ The trigger logic stays in `.site/assets/js/ticker.js`.
 | `base.njk` | `site`, `palettes`, `build`, `page` | The shared shell, navigation, footer, palette boot script |
 | `landing.njk` | `vault`, `funders`, `palettes`, `site`, `tickerData`, `method`, `heritage` | The full landing page |
 | `note.njk` | The note's front matter and body, `page` | A single note page with badges, facts, body, confirm box, backlinks |
+| `standalone.njk` | The note's front matter and body, `page` | A plain page with an optional image, title, and body. No badges, facts, crumbs, or backlinks. Used for pages kept at a legacy URL |
 | `work.njk` | `vault.work` | The filterable work grid |
 | `people.njk` | `vault.people` | The grouped people directory |
 | `heritage.njk` | `heritage` | The tree page with a sticky info panel |

@@ -28,6 +28,7 @@ Content is Markdown at the repository root. Each folder is one component of the 
 | Folder or file | What it is | Edit guide |
 |---|---|---|
 | `index.md` | The landing page: hero text, bullets, and the section order | [Landing page](docs/editing.md#landing-page) |
+| `one-planet-one-humanity.md` | The webinar series page, kept at the old site's URL. Not in the navigation | [Legacy pages](docs/editing.md#standalone-pages-at-a-legacy-url) |
 | `work/` | Projects, residencies, games, publications. Also `work/index.md` for the Our work page | [Work entries](docs/editing.md#work-entries) |
 | `people/` | Team members and collaborators. Also `people/index.md` for the People page | [People](docs/editing.md#people) |
 | `heritage/` | The three-level family tree: branches, clusters, and thinkers | [Heritage tree](docs/editing.md#heritage-tree) |
@@ -47,7 +48,7 @@ Technical components live under `.site/` and `model/`.
 | Path | What it is | Reference |
 |---|---|---|
 | `.site/eleventy.config.js` | Build configuration, Markdown setup, filters, passthrough, ignores | [Architecture](docs/architecture.md) |
-| `.site/layouts/` | Nunjucks page templates (`base`, `landing`, `note`, `work`, `people`, `heritage`) | [Layouts](docs/maintaining.md#layouts) |
+| `.site/layouts/` | Nunjucks page templates (`base`, `landing`, `note`, `standalone`, `work`, `people`, `heritage`) | [Layouts](docs/maintaining.md#layouts) |
 | `.site/_data/` | Site settings, palettes, funders, and data built from the notes | [Data files](docs/maintaining.md#data-files) |
 | `.site/plugins/` | Vault reader, wikilinks, heritage data builder | [Plugins](docs/maintaining.md#plugins) |
 | `.site/assets/js/` | The interactive modules (town model, charts, ticker, tree, palette) | [JavaScript modules](docs/maintaining.md#javascript-modules) |

@@ -17,6 +17,7 @@ After any edit, run `npm run build` (or leave `npm run serve` running) and check
 - [How we work](#how-we-work)
 - [Models](#models)
 - [Offers](#offers)
+- [Standalone pages at a legacy URL](#standalone-pages-at-a-legacy-url)
 - [Copy fragments](#copy-fragments)
 - [Essays](#essays)
 - [The Linden Cove Courier](#the-linden-cove-courier)
@@ -379,6 +380,43 @@ Optional longer body, shown on the offer's own page.
 - The note's own page shows the body.
 - There is no offers index page. The cards on the landing page are the entry point.
 
+## Standalone pages at a legacy URL
+
+Some pages exist only so that a link already shared with the outside world keeps working. They reproduce a page from the old WordPress site at its old path, they are not in the navigation, and nothing links to them.
+
+`one-planet-one-humanity.md` is the current example: it publishes at `/one-planet-one-humanity/` and holds the webinar series and its registration links.
+
+```yaml
+---
+title: "One Planet, One Humanity"
+type: note
+layout: standalone.njk
+permalink: /one-planet-one-humanity/index.html
+eleventyExcludeFromCollections: true
+image: assets/img/one-planet-one-humanity.jpg
+image_alt: "A seascape."
+image_credit: "Image credit: Brent Pearson on flickr.com, CC-BY-NC-ND 2.0"
+image_credit_url: "https://flic.kr/p/5Akhby"
+summary: "Used for the page description and link previews."
+---
+```
+
+Rules:
+
+- **Keep the address.** `permalink` has to match the old URL exactly, including the trailing folder. This is the whole point of the page.
+- **Set the layout.** `standalone.njk` shows the optional image, the title, and the body. It skips the badges, facts box, breadcrumbs, and backlinks that `note.njk` adds, so the page reads like the page it replaces.
+- **Keep it out of listings.** `eleventyExcludeFromCollections: true` and the absence of `featured` keep it off the landing page, the Our work grid, and the navigation. Nothing links to an unlisted page, so it will not appear in a "Linked from" block either.
+- **Write links by hand.** These pages do not use wikilinks or the `rel` filter. From `/one-planet-one-humanity/`, a link to a person page is `../people/yudhanjaya-wijeratne/index.html`.
+- **Leave a note in the work entry.** When the same work also has a regular `work/` entry, say in the entry's Sources list that the legacy page exists, so an editor does not delete it as a duplicate.
+
+To add another legacy page:
+
+1. Create `<old-path>.md` at the repository root, or use a `permalink` that reproduces the old path.
+2. Set `layout: standalone.njk` and `eleventyExcludeFromCollections: true`.
+3. Copy the old page's text and links over unchanged.
+4. Add the old URL to the Sources list of the matching work entry.
+5. Check that no page in the navigation or a listing links to it.
+
 ## Copy fragments
 
 Folder: `copy/`. These are Markdown fragments injected into the landing page. They are not published as pages.
@@ -477,7 +515,7 @@ Folder: `templates/`. Starter notes for each content type. These files are not p
 1. Create a folder at the repository root, for example `places/`.
 2. Add notes with a new `type`, or reuse `type: note`. Use a template.
 3. If the notes need their own address scheme, leave `layout` unset so `note.njk` applies and the default permalink (`/<folder>/<slug>/`) is used.
-4. If you need a list page, add `places/index.md` with `layout: places.njk` and create `.site/layouts/places.njk`.
+4. If you need a list page, add `places/index.md` with `layout: places.njk` and create `.site/layouts/places.njk`. If the page only has to sit at one fixed address, use `standalone.njk` and a `permalink` instead; see [Standalone pages at a legacy URL](#standalone-pages-at-a-legacy-url).
 5. If the type should be collected for a template, add it to `.site/_data/vault.js` with `of('place')`.
 6. If the folder should not be published, add it to the `ignores` list in `.site/eleventy.config.js` and to the vault `SKIP` set in `.site/plugins/vault.js`.
 7. Add a navigation link in `.site/layouts/base.njk` if the section needs one.

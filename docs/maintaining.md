@@ -169,6 +169,7 @@ Everything in `.site/_data/` is available to the templates.
 | `base.njk` | Every page | Head, meta, palette boot script, header navigation, footer, palette switcher |
 | `landing.njk` | `index.md` | Hero, town deck, Why we exist, funders, method flowchart, Our work, heritage teaser, Work with us, people strip |
 | `note.njk` | Default for notes | Title, badges, facts, body, confirm box, backlinks |
+| `standalone.njk` | Notes kept at a legacy URL | Optional image with credit, title, body. No badges, facts, crumbs, or backlinks |
 | `work.njk` | `work/index.md` | The filterable work grid |
 | `people.njk` | `people/index.md` | The grouped team directory |
 | `heritage.njk` | `heritage/index.md` | The tree, the sticky information panel, and the small-screen fallback |

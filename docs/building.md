@@ -68,6 +68,7 @@ Some of them still feed the site:
 
 ```text
 index.md                  landing page content (hero text and bullet points)
+one-planet-one-humanity.md webinar page kept at the old site's URL (not in the navigation)
 work/                     one note per piece of work, plus index.md for the list page
 people/                   one note per person, plus index.md for the People page
 heritage/                 the family tree of ideas, one note per node

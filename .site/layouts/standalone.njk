@@ -1,0 +1,14 @@
+---
+layout: base.njk
+---
+<article class="note standalone"><div class="wrap">
+  {% if image %}
+  <figure class="hero-fig">
+    <img src="{{ image | rel(page.url) }}" alt="{{ image_alt or '' }}" width="1200" height="787" loading="eager">
+    {% if image_credit %}<figcaption>{% if image_credit_url %}<a href="{{ image_credit_url }}" rel="noopener">{{ image_credit }}</a>{% else %}{{ image_credit }}{% endif %}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+  <h1>{{ title }}</h1>
+  {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
+  <div class="body">{{ content | safe }}</div>
+</div></article>

@@ -43,3 +43,5 @@ The first session has not yet happened, so there is nothing to report. For a par
 - [One Planet, One Humanity: global webinar series, Fondazione di Comunita Messina](https://fdcmessina.org/2026/10/19/one-planet-one-humanity-global-webinar-series/)
 - [Eutopie: Un pianeta, una umanita, Horcynus Festival 2026](https://fdcmessina.org/2026/07/15/eutopie-un-pianeta-una-umanita-dal-18-luglio-al-12-agosto-torna-lhorcynus-festival/)
 - [One planet, one humanity, on the Lab site](https://scifieconomicslab.net/one-planet-one-humanity/)
+
+The old site's page for the series is kept at `/one-planet-one-humanity/` so links already shared with it still work. It is not in the navigation. For editors, the rules are under "Standalone pages at a legacy URL" in `docs/editing.md`.
