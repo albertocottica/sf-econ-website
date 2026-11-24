@@ -11,8 +11,6 @@ who: "The Lab, Eutopia"
 motif: school
 why_it_matters: "A teaching product for the policymakers and place leaders the Lab wants to reach."
 featured: false
-source_url: "https://scifieconomicslab.net/school-of-complexity-economics-for-human-development/"
-source_label: "scifieconomicslab.net, The school of future places"
 tags: [showcase]
 confirm:
   - "No faculty, fees or application process are published. Invitations are requested at hello@scifieconomicslab.net. Confirm the programme with the Lab before quoting it."

@@ -11,8 +11,6 @@ who: "The Lab, Edgeryders, Yudhanjaya Wijeratne"
 motif: megacity
 why_it_matters: "The Lab's proof that fiction and economics can be played, with the open-source stance already in place."
 featured: true
-source_url: "https://scifieconomicslab.net/residency/"
-source_label: "scifieconomicslab.net"
 tags: [showcase]
 confirm:
   - "The Lab site links the Witness world at scifiworldbuilding.netlify.app, which did not load for the reader tool. Check what it holds."
