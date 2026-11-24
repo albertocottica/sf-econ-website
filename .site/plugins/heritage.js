@@ -18,7 +18,8 @@ function build() {
   const notes = v.notes.filter(n => n.data.heritage_type);
 
   const branches = notes.filter(n => n.data.heritage_type === 'branch').map(n => ({
-    id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url, short_hook: n.data.short_hook || ''
+    id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url,
+    why: n.data.why || '', summary: n.data.summary || '', short_hook: n.data.short_hook || ''
   }));
   const branchTitles = new Set(branches.map(b => b.title));
 
@@ -26,7 +27,8 @@ function build() {
     const branchNote = notes.find(bn => bn.data.heritage_type === 'branch' && bn.data.branch === n.data.branch);
     return {
       id: slugify(n.data.sub_branch), title: n.data.sub_branch, branch: n.data.branch,
-      color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url, short_hook: n.data.short_hook || '',
+      color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url,
+      why: n.data.why || '', summary: n.data.summary || '', short_hook: n.data.short_hook || '',
       branch_url: branchNote ? branchNote.url : null
     };
   });

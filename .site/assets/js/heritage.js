@@ -207,6 +207,13 @@
     showInfo(t);
   }
 
+  function infoText(t) {
+    var html = '';
+    if (t.why) html += '<p class="hwhy">' + esc(t.why) + '</p>';
+    if (t.summary && t.summary !== t.why) html += '<p class="hhook">' + esc(t.summary) + '</p>';
+    if (!html && t.short_hook) html += '<p class="hhook">' + esc(t.short_hook) + '</p>';
+    return html;
+  }
   function showInfo(t) {
     var box = document.getElementById('treeInfo');
     if (!box) { if (t.url) location.href = noteHref(t.url); return; }
@@ -218,7 +225,7 @@
       box.innerHTML = '<div class="hinfo">' +
         '<p class="hmeta">' + esc(t.profession) + (t.status ? ' · ' + esc(t.status) : '') + '</p>' +
         '<h2>' + esc(t.title) + '</h2>' +
-        (t.short_hook ? '<p class="hhook">' + esc(t.short_hook) + '</p>' : '') +
+        infoText(t) +
         '<div class="hbadges">' + badges + '</div>' +
         '<a class="btn sm" href="' + noteHref(t.url) + '">Open note</a></div>';
     } else if (t.type === 'cluster') {
@@ -226,7 +233,7 @@
       var badges = '<span class="hbadge" style="--c:' + colorOf(t.branch) + '">' + esc(t.branch) + '</span>';
       box.innerHTML = '<div class="hinfo">' +
         '<h2>' + esc(t.title) + '</h2>' +
-        (t.short_hook ? '<p class="hhook">' + esc(t.short_hook) + '</p>' : '') +
+        infoText(t) +
         '<div class="hbadges">' + badges + '</div>' +
         '<a class="btn sm" href="' + noteHref(t.url) + '">Open note</a></div>';
     } else if (t.type === 'branch') {
@@ -236,7 +243,7 @@
       }).join('');
       box.innerHTML = '<div class="hinfo">' +
         '<h2>' + esc(t.title) + '</h2>' +
-        (t.short_hook ? '<p class="hhook">' + esc(t.short_hook) + '</p>' : '') +
+        infoText(t) +
         '<div class="hbadges">' + sub + '</div>' +
         '<a class="btn sm" href="' + noteHref(t.url) + '">Open note</a></div>';
     }
@@ -252,7 +259,8 @@
     if (!state.branch) { resetInfo(); return; }
     var bRaw = null;
     for (var i = 0; i < D.branches.length; i++) { if (D.branches[i].title === bn) { bRaw = D.branches[i]; break; } }
-    showInfo({ type: 'branch', title: bn, branch: bn, url: bRaw ? bRaw.url : null, short_hook: bRaw ? bRaw.short_hook : '',
+    showInfo({ type: 'branch', title: bn, branch: bn, url: bRaw ? bRaw.url : null,
+      why: bRaw ? bRaw.why : '', summary: bRaw ? bRaw.summary : '', short_hook: bRaw ? bRaw.short_hook : '',
       sub_branches: (clustersByBranch[bn] || []).map(function (c) { return c.title; }) });
   }
   function toggleCluster(cid) {
@@ -260,7 +268,7 @@
     state.branch = '';
     apply();
     var c = state.cluster ? clustersById[cid] : null;
-    if (c) showInfo({ type: 'cluster', title: c.title, branch: c.branch, url: c.url, short_hook: c.short_hook });
+    if (c) showInfo({ type: 'cluster', title: c.title, branch: c.branch, url: c.url, why: c.why, summary: c.summary, short_hook: c.short_hook });
     else resetInfo();
   }
 

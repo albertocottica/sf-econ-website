@@ -254,7 +254,8 @@ title: "The Danger Zone"
 type: heritage
 heritage_type: "branch"
 branch: "The Danger Zone"
-short_hook: "One line for the info panel and the teaser."
+why: "The vision of a unified social science at the intersection of economics and anthropology."
+summary: "Epistemic inclusivity and interdisciplinarity are essential when you work on the ground on specific places."
 ---
 The longer explanation, shown on the note page.
 ```
@@ -299,6 +300,7 @@ Rules:
 - **Four branches.** The Danger Zone (rust), The Chemical Wedding (sky), The Pluriversity (sun), and The Broken Tower (leaf). The colour map is in `.site/plugins/heritage.js`.
 - **`status` is a heritage value**, not an epistemic one: `agreed`, `bridge`, `shared`, `contested`, or `full_only`. If the same note is also a person page with an epistemic `status`, put the heritage value in `heritage_status` instead. The builder reads `heritage_status` first.
 - **Any folder works.** The tree includes every note with `heritage_type`, not only notes in `heritage/`. This lets a `people/` note act as its own tree entry.
+- **Info panel text.** When a branch or cluster node is clicked, the panel shows `why`, then `summary` if it differs. If neither is set it falls back to `short_hook`. Thinkers use `short_hook`.
 - **Deep links.** `/heritage/#<cluster-id>` opens the page with that cluster selected and scrolled into view.
 - **Adding a thinker.** Copy `templates/heritage-node.md` into `heritage/` and fill it in.
 - **Adding a branch or cluster.** Copy `templates/heritage-branch.md` or `templates/heritage-cluster.md`. A cluster with no thinkers is a build error.
