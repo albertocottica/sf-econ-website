@@ -15,7 +15,8 @@ branches:
   - branch: "The Broken Tower"
     sub_branch: "Citizen science and participatory ethnography"
 profession: "Economist"
-short_hook: "Edgeryders and the open ethnography platform — communities as co-researchers"
+heritage_why: "Alberto Cottica co-founded Edgeryders as an open ethnography platform where communities document their own lives and economies."
+heritage_summary: "The Lab's method of generative ethnography — where the place names the problem, the model shows the trade-offs, and fiction makes it felt — descends directly from this practice of communities as co-researchers, not subjects."
 nominated_by: ["alberto"]
 heritage_status: "agreed"
 ---

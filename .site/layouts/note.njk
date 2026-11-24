@@ -12,7 +12,8 @@ layout: base.njk
     {% if opinion %}<span class="pill" style="background:var(--sun)">Opinion essay</span>{% endif %}
   </div>
   {% if type == 'person' and photo %}<img class="portrait" src="{{ photo | rel(page.url) }}" alt="Portrait of {{ title }}" width="208" height="240">{% endif %}
-  {% if summary %}<p class="lead">{{ summary }}</p>{% elif short_hook %}<p class="lead">{{ short_hook }}</p>{% endif %}
+  {% if why %}<p class="lead">{{ why }}</p>{% endif %}
+  {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
   {% if type == 'work' and motif %}
   <figure class="work-hero">{{ page.inputPath | workImage | safe }}</figure>
   <p class="work-src">{% if source_url %}<a class="btn" href="{{ source_url }}" rel="noopener">Read the original: {{ source_label or source_url }}</a>{% else %}<span class="pill speculative">Original link to be added</span>{% endif %}</p>

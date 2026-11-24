@@ -210,8 +210,7 @@
   function infoText(t) {
     var html = '';
     if (t.why) html += '<p class="hwhy">' + esc(t.why) + '</p>';
-    if (t.summary && t.summary !== t.why) html += '<p class="hhook">' + esc(t.summary) + '</p>';
-    if (!html && t.short_hook) html += '<p class="hhook">' + esc(t.short_hook) + '</p>';
+    if (t.summary) html += '<p class="hhook">' + esc(t.summary) + '</p>';
     return html;
   }
   function showInfo(t) {
@@ -260,7 +259,7 @@
     var bRaw = null;
     for (var i = 0; i < D.branches.length; i++) { if (D.branches[i].title === bn) { bRaw = D.branches[i]; break; } }
     showInfo({ type: 'branch', title: bn, branch: bn, url: bRaw ? bRaw.url : null,
-      why: bRaw ? bRaw.why : '', summary: bRaw ? bRaw.summary : '', short_hook: bRaw ? bRaw.short_hook : '',
+      why: bRaw ? bRaw.why : '', summary: bRaw ? bRaw.summary : '',
       sub_branches: (clustersByBranch[bn] || []).map(function (c) { return c.title; }) });
   }
   function toggleCluster(cid) {
@@ -268,7 +267,7 @@
     state.branch = '';
     apply();
     var c = state.cluster ? clustersById[cid] : null;
-    if (c) showInfo({ type: 'cluster', title: c.title, branch: c.branch, url: c.url, why: c.why, summary: c.summary, short_hook: c.short_hook });
+    if (c) showInfo({ type: 'cluster', title: c.title, branch: c.branch, url: c.url, why: c.why, summary: c.summary });
     else resetInfo();
   }
 
@@ -281,7 +280,7 @@
         if (state.branch) inScope = (t.branches || []).some(function (b) { return b.branch === state.branch; });
         if (state.cluster) inScope = (t.branches || []).some(function (b) { return slugify(b.sub_branch) === state.cluster; });
         if (fd) inScope = inScope && t.profession.toLowerCase().indexOf(fd) >= 0;
-        if (q) inScope = inScope && (t.title.toLowerCase().indexOf(q) >= 0 || (t.short_hook || '').toLowerCase().indexOf(q) >= 0 || t.profession.toLowerCase().indexOf(q) >= 0);
+        if (q) inScope = inScope && (t.title.toLowerCase().indexOf(q) >= 0 || ((t.why || '') + ' ' + (t.summary || '')).toLowerCase().indexOf(q) >= 0 || t.profession.toLowerCase().indexOf(q) >= 0);
         n.classList.toggle('dim', !inScope);
       });
     });

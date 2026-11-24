@@ -19,7 +19,7 @@ function build() {
 
   const branches = notes.filter(n => n.data.heritage_type === 'branch').map(n => ({
     id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url,
-    why: n.data.why || '', summary: n.data.summary || '', short_hook: n.data.short_hook || ''
+    why: n.data.why || '', summary: n.data.summary || ''
   }));
   const branchTitles = new Set(branches.map(b => b.title));
 
@@ -28,7 +28,7 @@ function build() {
     return {
       id: slugify(n.data.sub_branch), title: n.data.sub_branch, branch: n.data.branch,
       color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url,
-      why: n.data.why || '', summary: n.data.summary || '', short_hook: n.data.short_hook || '',
+      why: n.data.why || '', summary: n.data.summary || '',
       branch_url: branchNote ? branchNote.url : null
     };
   });
@@ -39,7 +39,8 @@ function build() {
     title: n.data.title || n.title,
     profession: n.data.profession || '',
     branches: (n.data.branches || []).map(b => ({ branch: b.branch, sub_branch: b.sub_branch })),
-    short_hook: n.data.short_hook || '',
+    why: n.data.heritage_why || n.data.why || '',
+    summary: n.data.heritage_summary || n.data.summary || '',
     nominated_by: n.data.nominated_by || [],
     status: n.data.heritage_status || n.data.status || 'candidate',
     url: n.url

@@ -229,7 +229,7 @@ summary: "Used on the card."
 - **Photo.** Save the image in `.site/assets/people/` and set `photo` to `assets/people/<file>`. Use a portrait crop at about 417 by 480 pixels, with the face in the upper half. Without a photo the card shows the first letter of the name.
 - **Landing page.** Every person also appears in the short strip under The people on the landing page.
 - **Page intro.** The sentence under the People heading is the `lead` in `people/index.md`.
-- **Heritage fields.** A person who is also a heritage thinker can carry the heritage fields on the same note. `people/alberto-cottica.md` does this with `heritage_type`, `branches`, `profession`, `short_hook`, `nominated_by`, and `heritage_status`. See [Heritage tree](#heritage-tree).
+- **Heritage fields.** A person who is also a heritage thinker can carry the heritage fields on the same note. `people/alberto-cottica.md` does this with `heritage_type`, `branches`, `profession`, `heritage_why`, `heritage_summary`, `nominated_by`, and `heritage_status`. The `heritage_` prefix keeps these separate from the person's own `summary`. See [Heritage tree](#heritage-tree).
 
 To add a person:
 
@@ -257,7 +257,6 @@ branch: "The Danger Zone"
 why: "The vision of a unified social science at the intersection of economics and anthropology."
 summary: "Epistemic inclusivity and interdisciplinarity are essential when you work on the ground on specific places."
 ---
-The longer explanation, shown on the note page.
 ```
 
 Cluster note:
@@ -269,9 +268,9 @@ type: heritage
 heritage_type: "cluster"
 branch: "The Chemical Wedding"
 sub_branch: "Money and finance"
-short_hook: "One line for the info panel."
+why: "One sentence on why this sub-branch is here."
+summary: "The rest of the explanation."
 ---
-The longer explanation.
 ```
 
 Thinker note:
@@ -286,11 +285,11 @@ branches:
     sub_branch: "Agency and development"
   # a second entry puts the thinker under another sub-branch too
 profession: "Economist"
-short_hook: "One line for the info panel"
+why: "One sentence on why this thinker is here."
+summary: "The rest of the explanation."
 nominated_by: ["alberto"]
 status: "agreed"
 ---
-The thinker's body text, shown on the note page.
 ```
 
 Rules:
@@ -300,7 +299,7 @@ Rules:
 - **Four branches.** The Danger Zone (rust), The Chemical Wedding (sky), The Pluriversity (sun), and The Broken Tower (leaf). The colour map is in `.site/plugins/heritage.js`.
 - **`status` is a heritage value**, not an epistemic one: `agreed`, `bridge`, `shared`, `contested`, or `full_only`. If the same note is also a person page with an epistemic `status`, put the heritage value in `heritage_status` instead. The builder reads `heritage_status` first.
 - **Any folder works.** The tree includes every note with `heritage_type`, not only notes in `heritage/`. This lets a `people/` note act as its own tree entry.
-- **Info panel text.** When a branch or cluster node is clicked, the panel shows `why`, then `summary` if it differs. If neither is set it falls back to `short_hook`. Thinkers use `short_hook`.
+- **Info panel text.** When any node is clicked, the panel shows `why` and then `summary`. Write the first sentence in `why` and the rest in `summary`.
 - **Deep links.** `/heritage/#<cluster-id>` opens the page with that cluster selected and scrolled into view.
 - **Adding a thinker.** Copy `templates/heritage-node.md` into `heritage/` and fill it in.
 - **Adding a branch or cluster.** Copy `templates/heritage-branch.md` or `templates/heritage-cluster.md`. A cluster with no thinkers is a build error.

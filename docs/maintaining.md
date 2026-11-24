@@ -272,7 +272,7 @@ Two notes share a title and the folder priority cannot settle them. Rename one, 
 The note needs `type: person`. Check that `group` is one of Principals, Contributors, Advisers, or Alumni.
 
 **A heritage page shows no explanation.**
-Branch and cluster notes need a body or a `short_hook`. Thinker pages use the body.
+Branch, cluster, and thinker notes need `why` and `summary`. Those two fields are what the info panel and the note page show.
 
 **A card has no illustration.**
 Run `python3 .site/tools/make-work-images.py` and check its output for an unknown motif.
