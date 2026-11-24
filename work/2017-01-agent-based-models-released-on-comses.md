@@ -33,3 +33,4 @@ The models and their code are public, which makes them a precedent for the Lab's
 ## Sources
 
 - [J M Applegate on CoMSES](https://arbutus.comses.net/users/1813)
+- [General Housing Model on CoMSES](https://www.comses.net/codebases/244c1427-497c-45dd-8dc8-bcdb459e614f/releases/1.0.1/)

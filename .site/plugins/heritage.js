@@ -15,7 +15,7 @@ const BRANCH_COLORS = {
 function build() {
   const v = load();
   const errors = [];
-  const notes = v.notes.filter(n => n.folder.startsWith('heritage') && n.data.heritage_type);
+  const notes = v.notes.filter(n => n.data.heritage_type);
 
   const branches = notes.filter(n => n.data.heritage_type === 'branch').map(n => ({
     id: slugify(n.data.branch), title: n.data.branch, color: BRANCH_COLORS[n.data.branch] || 'mute', url: n.url, short_hook: n.data.short_hook || ''
@@ -39,7 +39,7 @@ function build() {
     branches: (n.data.branches || []).map(b => ({ branch: b.branch, sub_branch: b.sub_branch })),
     short_hook: n.data.short_hook || '',
     nominated_by: n.data.nominated_by || [],
-    status: n.data.status || 'candidate',
+    status: n.data.heritage_status || n.data.status || 'candidate',
     url: n.url
   }));
 

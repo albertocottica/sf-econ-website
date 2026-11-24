@@ -1,5 +1,5 @@
 ---
-title: "The school of future places"
+title: "School of Complexity Economics"
 type: offer
 stage: sapling
 status: speculative
