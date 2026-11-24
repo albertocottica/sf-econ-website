@@ -9,6 +9,5 @@ module.exports = {
     const parts = p.replace(/\.md$/, '').split('/');
     const base = parts.pop();
     return '/' + parts.join('/') + (parts.length ? '/' : '') + (base === 'index' ? '' : slugify(base) + '/') + 'index.html';
-  },
-  eleventyExcludeFromCollections: d => false
+  }
 };

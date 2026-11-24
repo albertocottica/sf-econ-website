@@ -12,7 +12,7 @@ motif: network
 why_it_matters: "The method for reading a community's discussion as data, which the Concepts graph extends."
 featured: false
 source_url: "https://doi.org/10.1007/s41109-023-00547-6"
-source_label: "Operationalizing Anthropological Theory - _Applied Network Science_"
+source_label: "Operationalizing Anthropological Theory — Applied Network Science"
 tags: [showcase]
 ---
 

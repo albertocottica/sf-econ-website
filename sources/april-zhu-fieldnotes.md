@@ -2,7 +2,7 @@
 title: "April Zhu, Fieldnotes"
 type: source
 url: "https://april-zhu.com/fieldnotes"
-accessed: 2026-11-02
+accessed: "2026-11-02"
 author: "April Zhu"
 published: ""
 archived: false

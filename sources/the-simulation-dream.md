@@ -2,7 +2,7 @@
 title: "The Simulation Dream"
 type: source
 url: "https://www.gamedeveloper.com/design/the-simulation-dream"
-accessed: 2026-11-02
+accessed: "2026-11-02"
 author: "Tynan Sylvester"
 published: "2013-06-02"
 archived: false

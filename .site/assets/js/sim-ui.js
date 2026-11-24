@@ -101,7 +101,7 @@
   function drawEvent(t) {
     if (S.pending.length) return S.pending.shift();
     if (S.scenario === 'calm') return null;
-    if (S.scenario === 'hard') return HARD[t % TERM] && (t < TERM || true) ? HARD[t % TERM] : null;
+    if (S.scenario === 'hard') return HARD[t % TERM] || null;
     var r = S.rng();            // always consume one draw so a seed gives one fixed deck
     if (t < 12 || t - S.lastEv < 6) return null;   // a quiet first year
     var acc = 0; for (var i = 0; i < PROB.length; i++) { acc += PROB[i][1]; if (r < acc) return PROB[i][0]; }
@@ -368,7 +368,7 @@
 
   /* ---------- wiring ---------- */
   function paintPlay() {
-    $('#play').textContent = S.running ? 'Pause' : (S.town.t === 0 ? 'Play' : 'Play'); $('#play').setAttribute('aria-pressed', S.running);
+    $('#play').textContent = S.running ? 'Pause' : 'Play'; $('#play').setAttribute('aria-pressed', S.running);
     $$('[data-speed]').forEach(function (b) { b.setAttribute('aria-pressed', +b.dataset.speed === S.speed); });
   }
   function wire() {
@@ -383,11 +383,6 @@
     $('#scenario').onchange = function (e) { S.scenario = e.target.value; reset(); S.running = true; schedule(); paintPlay(); };
     $('#seedLbl').textContent = 'seed ' + S.seed;
     window.addEventListener('palettechange', function () { loadFigure(); render(); });
-    // pause when the deck is off screen so the clock does not run unseen
-    if ('IntersectionObserver' in window) {
-      var vis = true;
-      new IntersectionObserver(function (es) { vis = es[0].isIntersecting || document.querySelector('#figbox').getBoundingClientRect().bottom > 0; }, { threshold: 0 }).observe($('#run'));
-    }
   }
 
   buildPool(); bindSliders(); wire(); watchFigure(); loadFigure(); reset(); paintPlay(); schedule();

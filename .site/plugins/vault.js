@@ -36,6 +36,11 @@ function load() {
     const url = rel === 'index.md' ? '/' : '/' + (folder ? folder + '/' : '') + (isIndex ? '' : slugify(base) + '/');
     notes.push({ rel, file, base, folder, slug: slugify(base), url, data: fm.data, body: fm.content, title: fm.data.title || base });
   }
+  // sort so "first match wins" is the same on every machine (readdir order is not guaranteed)
+  notes.sort((a, b) => a.rel.localeCompare(b.rel));
+  const titleCount = new Map();
+  for (const n of notes) { const k = n.title.toLowerCase().trim(); const e = titleCount.get(k); if (e) e.rels.push(n.rel); else titleCount.set(k, { title: n.title, rels: [n.rel] }); }
+  const duplicateTitles = [...titleCount.values()].filter(e => e.rels.length > 1);
   const index = new Map();
   const put = (k, n) => { k = String(k).toLowerCase().trim(); if (k && !index.has(k)) index.set(k, n); };
   for (const n of notes) { put(n.base, n); put(n.title, n); put(n.slug, n); put((n.folder ? n.folder + '/' : '') + n.base, n); put((n.folder ? n.folder + '/' : '') + n.slug, n); }
@@ -56,7 +61,7 @@ function load() {
   for (const n of notes) { addEdge(n, n.body); addEdge(n, JSON.stringify(n.data)); }
   const missing = [];
   for (const n of notes) { let m; RE.lastIndex = 0; while ((m = RE.exec(n.body))) { if (!m[1] && !resolve(m[2])) missing.push(`${n.rel}: [[${m[2]}]]`); } }
-  cache = { notes, index, resolve, backlinks: rel => back.has(rel) ? [...back.get(rel).values()] : [], missing, ROOT, slugify };
+  cache = { notes, index, resolve, backlinks: rel => back.has(rel) ? [...back.get(rel).values()] : [], missing, duplicateTitles, ROOT, slugify };
   return cache;
 }
 module.exports = { load, reset, slugify, ROOT };

@@ -2,7 +2,7 @@
 title: "Neil Mather's commonplace"
 type: source
 url: "https://commonplace.doubleloop.net/"
-accessed: 2026-11-02
+accessed: "2026-11-02"
 author: "Neil Mather"
 published: ""
 archived: false
