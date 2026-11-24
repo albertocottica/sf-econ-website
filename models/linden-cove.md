@@ -27,4 +27,4 @@ The mood number combines three things: what people keep after tax and rent (weig
 
 The Linden Cove model is a teaching device. We can model your regions, your towns, and help you explore the future of both present and alternate economics.
 
-<p style="margin-top:24px"><a class="btn" href="mailto:{{ site.contact }}?subject=Bring%20us%20your%20problems">Write to us</a></p>
+<p style="margin-top:24px"><a class="btn" href="mailto:hello@scifieconomicslab.net?subject=Bring%20us%20your%20problems">Write to us</a></p>

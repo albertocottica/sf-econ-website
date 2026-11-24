@@ -2,7 +2,7 @@
 title: "Witness Futures Conference paper"
 type: source
 url: "https://zenodo.org/records/6651313"
-accessed: 2026-11-02
+accessed: "2026-11-02"
 author: "Cottica, Cukeric, El-Imam, Pettai, Uguzzoni"
 published: "2022-06"
 archived: false

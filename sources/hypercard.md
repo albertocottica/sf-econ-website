@@ -2,7 +2,7 @@
 title: "HyperCard"
 type: source
 url: "https://en.wikipedia.org/wiki/HyperCard"
-accessed: 2026-11-02
+accessed: "2026-11-02"
 author: ""
 published: ""
 archived: false

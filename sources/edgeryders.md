@@ -2,7 +2,7 @@
 title: "Edgeryders"
 type: source
 url: "https://edgeryders.eu"
-accessed: 2026-11-02
+accessed: "2026-11-02"
 author: ""
 published: ""
 archived: false

@@ -96,10 +96,6 @@
     var mx = (x1 + x2) / 2;
     return 'M' + x1 + ' ' + y1 + ' C' + mx + ' ' + y1 + ' ' + mx + ' ' + y2 + ' ' + x2 + ' ' + y2;
   }
-  function nodeLink(parent, href, label) {
-    if (!compact) return null;
-    return el('a', { href: href, 'aria-label': label, class: 'hlink' }, parent);
-  }
 
   var heritageUrl = root + 'heritage/index.html';
   var noteHref = function (url) { return root + String(url).replace(/^\//, '').replace(/\/$/, '/index.html'); };

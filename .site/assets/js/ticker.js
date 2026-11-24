@@ -83,7 +83,6 @@
         }
       }
       // filler when nothing is queued for a while
-      if (!out.length) { ctx.quiet = (ctx.quiet || 0); }
       out.sort((a, b) => b.priority - a.priority);
       return out.slice(0, 2);
     }
