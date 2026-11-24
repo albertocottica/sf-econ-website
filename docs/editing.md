@@ -71,7 +71,7 @@ These fields work on any note.
 | `type` | `note`, `person`, `work`, `model`, `place`, `concept`, `essay`, `heritage`, `method`, or `offer` |
 | `stage` | Growth stage: `seedling`, `sapling`, or `evergreen`. Shown as a badge |
 | `status` | How settled the claim is: `speculative`, `working`, or `settled`. Shown as a badge |
-| `summary` | One sentence for cards, previews, and the page lead |
+| `summary` | One sentence for cards, previews, and the page lead. On heritage nodes it holds the rest of the explanation; see [Heritage tree](#heritage-tree) |
 | `tags` | A list such as `[showcase]`, `[principal]`, or `[copy]` |
 | `featured` | `true` shows a work note as a card in the landing page's Our work section |
 | `thread` | Optional Edgeryders discussion link, shown at the foot of the page |
@@ -241,6 +241,8 @@ To add a person:
 ## Heritage tree
 
 Folder: `heritage/`. The tree has three levels. Each level is a small note with `type: heritage`.
+
+Every heritage node has two text fields: `why` (the first sentence) and `summary` (the rest). There is no `short_hook`. The info panel and the note page show `why` then `summary`.
 
 - **Branch** (`heritage/branches/`): `heritage_type: "branch"` and a `branch` name.
 - **Cluster** (`heritage/clusters/`): `heritage_type: "cluster"`, a `sub_branch` name, and the `branch` it sits under.

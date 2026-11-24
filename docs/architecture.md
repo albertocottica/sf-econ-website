@@ -171,6 +171,8 @@ Validation rules:
 
 The `status` shown in the tree is `heritage_status` if present, otherwise `status`, otherwise `candidate`.
 
+Branches, clusters, and thinkers expose `why` and `summary` to the tree. A note that is also a person page can set `heritage_why` and `heritage_summary`, which take precedence over the note's own `summary`.
+
 ## Method data
 
 `.site/_data/method.js` selects notes in `method/` that have a `step`, sorts them by `step`, and exposes `label`, `next`, `edge`, `tone`, `caption_title`, `caption_body`, `summary`, and `url` to the flowchart.
