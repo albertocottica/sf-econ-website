@@ -8,8 +8,7 @@ module.exports = () => {
 
   return {
     work: of('work').sort(byStartDesc), featured: v.notes.filter(n => n.data.featured).map(pick).sort(byStartDesc),
-    people: of('person'), offers: of('offer'), models: of('model'), places: of('place'), concepts: of('concept'), essays: of('essay'), sources: of('source'),
-    counts: { notes: v.notes.length, sources: v.notes.filter(n => n.data.type === 'source').length, needsUrl: v.notes.filter(n => n.data.type === 'source' && (n.data.tags || []).includes('needs-url')).length },
+    people: of('person'), offers: of('offer'), models: of('model'), places: of('place'), concepts: of('concept'), essays: of('essay'),
     missing: v.missing
   };
 };

@@ -99,6 +99,9 @@
 
   var heritageUrl = root + 'heritage/index.html';
   var noteHref = function (url) { return root + String(url).replace(/^\//, '').replace(/\/$/, '/index.html'); };
+  function noteLink(text, url) { return url ? '<a href="' + noteHref(url) + '">' + esc(text) + '</a>' : esc(text); }
+  var branchUrl = {};
+  for (var bi = 0; bi < D.branches.length; bi++) branchUrl[D.branches[bi].title] = D.branches[bi].url;
 
   // branches
   BRANCH_ORDER.forEach(function (bn) {
@@ -225,7 +228,7 @@
         '<h2>' + esc(t.title) + '</h2>' +
         (t.short_hook ? '<p class="hhook">' + esc(t.short_hook) + '</p>' : '') +
         '<div class="hbadges">' + badges + '</div>' +
-        '<a class="btn sm" href="' + noteHref(t.branch_url) + '">Open note</a></div>';
+        '<a class="btn sm" href="' + noteHref(t.url) + '">Open note</a></div>';
     } else if (t.type === 'branch') {
       // Branches: list of sub-branches
       var sub = (t.sub_branches || []).map(function (s) {
@@ -239,23 +242,26 @@
     }
   }
 
+  function resetInfo() {
+    document.getElementById('treeInfo').innerHTML = '<p class="hint">Click a node to read why it is here.</p>';
+  }
   function toggleBranch(bn) {
     state.branch = state.branch === bn ? '' : bn;
     state.cluster = '';
     apply();
-    if (state.branch) {
-      var bRaw = D.branches.find(function (b) { return b.title === bn; });
-      var bData = { type: 'branch', title: bn, branch: bn, url: bRaw ? bRaw.url : null, short_hook: bRaw ? bRaw.short_hook : '',
-        sub_branches: (clustersByBranch[bn] || []).map(function (c) { return c.title; }) };
-      showInfo(bData);
-    } else document.getElementById('treeInfo').innerHTML = '<p class="hint">Click a node to read why it is here.</p>';
+    if (!state.branch) { resetInfo(); return; }
+    var bRaw = null;
+    for (var i = 0; i < D.branches.length; i++) { if (D.branches[i].title === bn) { bRaw = D.branches[i]; break; } }
+    showInfo({ type: 'branch', title: bn, branch: bn, url: bRaw ? bRaw.url : null, short_hook: bRaw ? bRaw.short_hook : '',
+      sub_branches: (clustersByBranch[bn] || []).map(function (c) { return c.title; }) });
   }
   function toggleCluster(cid) {
     state.cluster = state.cluster === cid ? '' : cid;
     state.branch = '';
     apply();
-    if (state.cluster && clustersById[cid]) showInfo({ type: 'cluster', ...clustersById[cid] });
-    else if (!state.cluster) document.getElementById('treeInfo').innerHTML = '<p class="hint">Click a node to read why it is here.</p>';
+    var c = state.cluster ? clustersById[cid] : null;
+    if (c) showInfo({ type: 'cluster', title: c.title, branch: c.branch, url: c.url, short_hook: c.short_hook });
+    else resetInfo();
   }
 
   function apply() {
@@ -354,9 +360,9 @@
   var fall = document.getElementById('treeFall');
   if (fall) {
     fall.innerHTML = BRANCH_ORDER.map(function (bn) {
-      return '<details class="nest"><summary>' + esc(bn) + '</summary><ul>' + (clustersByBranch[bn] || []).map(function (cl) {
-        return '<li>' + esc(cl.title) + '<ul>' + (byCluster[cl.id] || []).map(function (r) {
-          return '<li>' + esc(r.t.title) + ' — ' + esc(r.t.profession) + '</li>';
+      return '<details class="nest"><summary>' + noteLink(bn, branchUrl[bn]) + '</summary><ul>' + (clustersByBranch[bn] || []).map(function (cl) {
+        return '<li>' + noteLink(cl.title, cl.url) + '<ul>' + (byCluster[cl.id] || []).map(function (r) {
+          return '<li>' + noteLink(r.t.title, r.t.url) + ' — ' + esc(r.t.profession) + '</li>';
         }).join('') + '</ul></li>';
       }).join('') + '</ul></details>';
     }).join('');

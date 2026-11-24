@@ -5,9 +5,13 @@ layout: base.njk
   <div class="eyebrow">Heritage</div>
   <h1>{{ title }}</h1>
   <p class="lead">Economists, city thinkers, game designers, writers and anthropologists whose ideas we build on.</p>
-  <div id="tree" tabindex="0" aria-label="Heritage tree"></div>
-  <div class="tfall" id="treeFall"></div>
-  <div class="tinfo" id="treeInfo"><p class="hint">Click a node to read why it is here.</p></div>
+  <div class="heritage-layout">
+    <aside class="tinfo" id="treeInfo"><p class="hint">Click a node to read why it is here.</p></aside>
+    <div class="tree-col">
+      <div id="tree" tabindex="0" aria-label="Heritage tree"></div>
+      <div class="tfall" id="treeFall"></div>
+    </div>
+  </div>
 </div></section>
 <script id="site-data" type="application/json">{{ { heritage: heritage } | json | safe }}</script>
 <script src="{{ page.url | root }}assets/js/heritage.js?v={{ build }}" defer data-mode="page"></script>

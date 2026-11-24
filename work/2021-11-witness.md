@@ -36,3 +36,4 @@ The sources we read do not report player numbers or an evaluation. Later work in
 - [Witnesspedia 2024 (PDF)](https://yudhanjaya.com/pubshare/Witnesspedia_2024.pdf)
 - [Witness world site](https://scifiworldbuilding.netlify.app/)
 - [About Witness, on Edgeryders](https://edgeryders.eu/t/about-witness/16071)
+- [Witness Futures Conference paper (Zenodo)](https://zenodo.org/records/6651313)

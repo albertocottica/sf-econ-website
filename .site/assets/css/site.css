@@ -219,6 +219,12 @@ details.nest>summary{cursor:pointer;font-weight:500}
 
 /* heritage tree */
 .tree-host{position:relative;overflow-x:auto;margin-top:24px;padding-bottom:4px}
+.heritage-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;grid-template-areas:"tree info";gap:var(--gap);align-items:start;margin-top:24px}
+.heritage-layout .tree-col{grid-area:tree;min-width:0}
+.heritage-layout .tinfo{grid-area:info;margin-top:0;max-width:360px}
+.heritage-layout .tree-host{margin-top:0}
+@media (min-width:1101px){.heritage-layout .tinfo{position:sticky;top:84px;max-height:calc(100vh - 110px);overflow:auto}}
+@media (max-width:1100px){.heritage-layout{grid-template-columns:1fr;grid-template-areas:"info" "tree"}.heritage-layout .tinfo{max-width:none}}
 .htree{display:block;width:100%;height:auto;min-width:760px;overflow:visible}
 .is-compact .htree{min-width:720px}
 .htree .edge{fill:none;stroke:var(--c);stroke-linecap:round;transition:opacity .18s,stroke-width .18s}

@@ -36,13 +36,23 @@ function load() {
     const url = rel === 'index.md' ? '/' : '/' + (folder ? folder + '/' : '') + (isIndex ? '' : slugify(base) + '/');
     notes.push({ rel, file, base, folder, slug: slugify(base), url, data: fm.data, body: fm.content, title: fm.data.title || base });
   }
-  // sort so "first match wins" is the same on every machine (readdir order is not guaranteed)
+  // sort so ties break the same way on every machine (readdir order is not guaranteed)
   notes.sort((a, b) => a.rel.localeCompare(b.rel));
+  // when notes share a bare key, the reader-facing folder wins: people first, then work/offers, etc.
+  const FOLDER_RANK = ['people/', 'work/', 'offers/', 'models/', 'places/', 'concepts/', 'essays/', 'heritage/', 'copy/'];
+  const rankOf = n => { for (let i = 0; i < FOLDER_RANK.length; i++) if (n.rel.startsWith(FOLDER_RANK[i])) return i; return FOLDER_RANK.length; };
+  const beats = (a, b) => { const ra = rankOf(a), rb = rankOf(b); return ra < rb || (ra === rb && a.rel < b.rel); };
   const titleCount = new Map();
   for (const n of notes) { const k = n.title.toLowerCase().trim(); const e = titleCount.get(k); if (e) e.rels.push(n.rel); else titleCount.set(k, { title: n.title, rels: [n.rel] }); }
-  const duplicateTitles = [...titleCount.values()].filter(e => e.rels.length > 1);
+  // only flag collisions the folder priority cannot settle
+  const duplicateTitles = [...titleCount.values()].filter(e => {
+    if (e.rels.length < 2) return false;
+    const ranks = e.rels.map(rel => rankOf({ rel }));
+    const min = Math.min.apply(null, ranks);
+    return ranks.filter(r => r === min).length > 1;
+  });
   const index = new Map();
-  const put = (k, n) => { k = String(k).toLowerCase().trim(); if (k && !index.has(k)) index.set(k, n); };
+  const put = (k, n) => { k = String(k).toLowerCase().trim(); if (!k) return; const cur = index.get(k); if (!cur || beats(n, cur)) index.set(k, n); };
   for (const n of notes) { put(n.base, n); put(n.title, n); put(n.slug, n); put((n.folder ? n.folder + '/' : '') + n.base, n); put((n.folder ? n.folder + '/' : '') + n.slug, n); }
   const resolve = target => {
     let t = String(target).split('#')[0].split('|')[0].trim().replace(/\.md$/, '');
