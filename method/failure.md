@@ -8,8 +8,8 @@ edge_label: ["try another option"]
 tone: rust
 stage: sapling
 status: working
-caption_title: "The ones that hold do not give one answer. They give different paths."
-caption_body: "Each path trades one thing for another, and the model shows the trade as curves anyone can read."
+caption_title: "Most options break on paper, which is the cheap place to find out."
+caption_body: "A simulation is the cheapest way to fail. When one does, the room goes back and tries another."
 summary: "Models typically show many options would not work. This is good: a simulation is the cheapest way to fail. Everyone goes back to the table and tries another."
 ---
 

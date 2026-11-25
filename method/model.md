@@ -8,8 +8,8 @@ edge_label: ["the option fails on paper", "the option holds"]
 tone: leaf
 stage: sapling
 status: working
-caption_title: "Most options break on paper, which is the cheap place to find out."
-caption_body: "When one does, the room returns to the table and tries another."
+caption_title: "Then we build a model you can run."
+caption_body: "Each option becomes a small model the room can handle. Sliders move the parameters and the curves answer back."
 summary: "We create simple models for each credible option, grounded in complexity economics. Anyone in the room can run the models, using sliders to control their parameters, and watch what happens."
 ---
 

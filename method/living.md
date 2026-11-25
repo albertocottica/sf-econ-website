@@ -8,8 +8,8 @@ edge_label: []
 tone: leaf
 stage: sapling
 status: working
-caption_title: "We checked the core of this formally. A shortcut breaks both of our rules within two steps."
-caption_body: "In the checked model, skipping the test and the story gets you a commitment nobody examined."
+caption_title: "Then the town lives with it, and the model keeps watch."
+caption_body: "It becomes a monitoring tool. Does real life match what people expected? If not, why not?"
 summary: "The model now converts into a monitoring tool. Does real life match what people expected when they chose this option? If not, why not?"
 ---
 

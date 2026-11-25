@@ -317,13 +317,14 @@ state_label: "Model running, sliders in hand"
 next: [4, 5]                          # steps this one leads to
 edge_label: ["the option fails on paper", "the option holds"]
 tone: leaf                            # colour of the node
-icon: ""
-caption_title: "Short heading for the left caption"
-caption_body: "Body text for the left caption."
-summary: "Shown on the chart and on the note page."
+caption_title: "Then we build a model you can run."
+caption_body: "Each option becomes a small model the room can handle."
+summary: "One line for the note page."
 ---
-The body is the text shown under "Open the note".
+The body is the note's own text.
 ```
+
+Every line the chart says about a step lives in that step's note: `state_label` on the node, `edge_label` on the arrows, `caption_title` and `caption_body` in the strip underneath. Nothing has to be edited in JavaScript.
 
 Notes that describe the process without being a step live in the same folder and simply omit `step`: `overview.md`, `generative-ethnography.md`, `test-before-commit.md`, and `story-before-commit.md`.
 
@@ -333,8 +334,8 @@ Rules:
 - Steps are ordered by `step`, which must be unique.
 - `tone` picks the node colour (`rust`, `sky`, `leaf`, `green`, `sun`, and so on).
 - Changing a step number or its links changes the chart. Check the animation after any edit.
-- The summary appears in the caption strip under the chart and on the note page at `/method/<slug>/`. The strip follows `state_label` and `summary`.
-- `caption_title` and `caption_body` are reserved for the caption strip but are **not rendered yet**; the current values are out of step with their notes, so they need a review before they are wired up.
+- The summary is the note's one-line summary, shown on the note page at `/method/<slug>/`.
+- `state_label` is the node's on-chart label. `caption_title` and `caption_body` drive the caption strip under the chart. If either is missing, the strip falls back to `state_label` and `summary`, so a step without captions still reads.
 
 ## Models
 

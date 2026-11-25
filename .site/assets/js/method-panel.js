@@ -187,8 +187,9 @@
   function setCaption(step) {
     var s = byStep[step]; if (!s) return;
     if (progress) progress.textContent = 'Step ' + s.step + ' of ' + ordered.length + ' · ' + s.label;
-    if (capTitle) capTitle.textContent = s.label;
-    if (capBody) capBody.textContent = s.summary || '';
+    // caption_title / caption_body come from the step's note; fall back to the label and summary
+    if (capTitle) capTitle.textContent = s.caption_title || s.label;
+    if (capBody) capBody.textContent = s.caption_body || s.summary || '';
     if (capLink) { capLink.href = noteHref(s.url); capLink.hidden = false; }
   }
 
