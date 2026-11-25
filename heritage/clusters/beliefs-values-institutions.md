@@ -7,4 +7,4 @@ sub_branch: "Beliefs, values, institutions"
 why: "Values, interests and the stories people tell each other invent and maintain economic institutions."
 summary: "We study and cherish this scholarship as a way to improve our own economic agency, and that of the communities we work with."
 ---
-Anthropologists, social scientists and political economists have long maintained that values, interests and the stories people tell each other invent and maintain economic institutions. We study and cherish this scholarship as a way to improve our own economic agency, and that of the communities we work with.
+Anthropologists, social scientists and political economists reached this conclusion from very different starting points, and the Lab works across all of them. Thinking in this tradition is how we sharpen our own economic agency, and help the communities we work with sharpen theirs.

@@ -11,7 +11,7 @@ who: "The Lab, Eutopia"
 motif: school
 why_it_matters: "A teaching product for the policymakers and place leaders the Lab wants to reach."
 featured: false
-tags: [showcase]
+tags: [showcase, needs-url]
 ---
 
 ## What it is

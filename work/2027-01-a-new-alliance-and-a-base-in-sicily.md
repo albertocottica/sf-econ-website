@@ -11,6 +11,8 @@ who: "The Lab, Fondazione di Comunità Messina"
 motif: bridge
 why_it_matters: "Shows where the Lab is heading next: a standing institutional home for place-based work."
 featured: false
+source_url: "https://fdcmessina.org/about-us"
+source_label: "Fondazione di Comunità Messina, About us"
 tags: [showcase]
 ---
 
