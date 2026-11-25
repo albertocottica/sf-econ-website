@@ -179,6 +179,8 @@ Branches, clusters, and thinkers expose `why` and `summary` to the tree. A note 
 
 `method-panel.js` holds the hand-drawn SVG geometry for the nodes and edges. The labels come from the notes through `next` and `edge_label`. If a note's `next` list and `edge_label` list have different lengths, the extra labels are simply not used; the build does not fail.
 
+The chart groups its nodes into beats, one per `step`, and reveals them in order on a timer. Each beat also carries the edges whose `need` matches that step and their labels, so a step that splits into two arms (5 and 7) shows both at once. The caption strip reads `state_label` and `summary`. `caption_title` and `caption_body` are exported but unused; see [Editing content](editing.md#how-we-work).
+
 ## Ticker data
 
 `.site/_data/tickerData.js` reads `ticker/cast.md`, `ticker/rules.md`, and `ticker/templates.md` and returns:

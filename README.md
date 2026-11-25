@@ -99,8 +99,8 @@ All client-side JavaScript is plain JavaScript and lives in `.site/assets/js/`. 
 | `model.js` | The Linden Cove economic model, a line-for-line port of `model/reference_model.py` |
 | `sim-ui.js` | The "Run the town" sliders, clocks, charts, events, and the follow-the-change map |
 | `ticker.js` | The Courier's headlines, built from `ticker/` and the model output |
-| `method-panel.js` | The scroll-driven method flowchart, drawn as SVG |
-| `heritage.js` | The heritage tree, its filters, info panel, and the landing-page teaser |
+| `method-panel.js` | The method flowchart, drawn as SVG, with a timed step-by-step reveal |
+| `heritage.js` | The heritage tree, its filters, floating info card, and the landing-page teaser |
 | `palette.js` | The footer palette switcher, saved in the browser |
 
 The model is checked against the Python reference by `npm test`. See [Testing](docs/testing.md).

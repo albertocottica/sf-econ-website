@@ -140,8 +140,8 @@ Keep the existing permissions and jobs.
 - [ ] Landing page loads and the town runs. Sliders move the charts, the ticker speaks, and events apply.
 - [ ] Pause, speed, restart, and the ten-year summary work.
 - [ ] "Follow the change" updates after you move a slider.
-- [ ] How we work builds step by step and the last caption ends cleanly.
-- [ ] Heritage: click a branch, a cluster, and a thinker. The info panel updates. Filters and search work.
+- [ ] How we work plays in step order, the progress line and caption strip advance together, Pause holds and Replay restarts. Clicking a node holds on that step. With `prefers-reduced-motion` the whole chart appears at once with no controls.
+- [ ] Heritage: click a branch, a cluster, and a thinker. The info card opens bottom-left (bottom sheet on narrow screens) and closes with ×. Filters and search work. The four columns fit one screen at 1280px and up.
 - [ ] Our work: every filter chip shows the right cards.
 - [ ] People: groups and order look right, photos load.
 - [ ] Palette switcher changes the colours and survives a reload.

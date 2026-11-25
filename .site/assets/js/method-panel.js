@@ -5,7 +5,6 @@
   var DATA = JSON.parse(document.getElementById('site-data').textContent);
   var steps = DATA.method; if (!steps.length) return;
   var NS = 'http://www.w3.org/2000/svg';
-  function esc(t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   // Node pictures are drawn from parts the site already uses: sliders, model charts, the budget bar, iso blocks, the Courier strip.
   // isometric block in the town figure's three-band shading
   var mixc=(a,b,t)=>{const p=x=>[1,3,5].map(i=>parseInt(x.slice(i,i+2),16));const A=p(a),B=p(b);return '#'+A.map((v,i)=>Math.round(v*(1-t)+B[i]*t).toString(16).padStart(2,'0')).join('')};
@@ -117,10 +116,12 @@
       labEls[e.id] = t;
     }
   });
+  // Two balanced lines at most, so the node box height never changes.
   function wrapLabel(t) {
-    var words = t.split(' '), lines = [], cur = '';
-    words.forEach(function (w) { if (cur && (cur + ' ' + w).length > 15) { lines.push(cur); cur = w; } else cur = (cur + ' ' + w).trim(); });
-    lines.push(cur); return lines;
+    if (t.length <= 16) return [t];
+    var mid = t.length / 2, best = -1, i;
+    for (i = 0; i < t.length; i++) if (t.charAt(i) === ' ' && (best < 0 || Math.abs(i - mid) < Math.abs(best - mid))) best = i;
+    return best < 0 ? [t] : [t.slice(0, best), t.slice(best + 1)];
   }
   var nodeEls = {};
   NODES.forEach(function (n) {
@@ -137,19 +138,151 @@
     el('circle', { cx: -52, cy: -52, r: 11, class: 'nb' }, gg);
     el('text', { x: -52, y: -48, class: 'nbt' }, gg, n.badge);
     nodeEls[n.id] = gg;
-    function open() { showCard(s); }
-    gg.addEventListener('click', open); gg.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    gg.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pinStep(n.step); } });
   });
-  var card = document.getElementById('mcard');
-  function showCard(s) {
-    var root = document.querySelector('script[data-root]').getAttribute('data-root');
-    card.innerHTML = '<b>' + esc(s.step) + '. ' + esc(s.label) + '</b><br>' + esc(s.summary) + '<br><a href="' + root + s.url.replace(/^\//, '').replace(/\/$/, '/index.html') + '">Open the note</a>';
-    card.classList.add('on');
-  }
-  document.addEventListener('click', function (e) { if (!e.target.closest('.node') && !e.target.closest('.mcard')) card.classList.remove('on'); });
+  var progress = document.getElementById('mprogress');
+  var capTitle = document.getElementById('mcapTitle');
+  var capBody = document.getElementById('mcapBody');
+  var capLink = document.getElementById('mcapLink');
+  var playBtn = document.getElementById('mplay');
+  var replayBtn = document.getElementById('mreplay');
+  var rootUrl = document.querySelector('script[data-root]').getAttribute('data-root');
 
-  // everything is visible at once
-  Object.keys(nodeEls).forEach(function (k) { nodeEls[k].classList.add('on'); });
-  Object.keys(edgeEls).forEach(function (k) { edgeEls[k].classList.add('on'); });
-  Object.keys(labEls).forEach(function (k) { labEls[k].classList.add('on'); });
+  function noteHref(url) { return rootUrl + String(url).replace(/^\//, '').replace(/\/$/, '/index.html'); }
+
+  // ---- beats: one step at a time, in order. Steps that split into two arms share a beat ----
+  var ordered = steps.slice().sort(function (a, b) { return a.step - b.step; });
+  var BEATS = [];
+  var beatOf = {};
+  NODES.forEach(function (n) {
+    if (!byStep[n.step]) return;
+    var bi = beatOf[n.step];
+    if (bi === undefined) { bi = beatOf[n.step] = BEATS.length; BEATS.push({ step: n.step, nodes: [], edges: [], labels: [] }); }
+    BEATS[bi].nodes.push(n.id);
+  });
+  EDGES.forEach(function (e) {
+    var bi = beatOf[e.need];
+    if (bi === undefined) return;
+    BEATS[bi].edges.push(e.id);
+    if (labEls[e.id]) BEATS[bi].labels.push(e.id);
+  });
+
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var STEP_MS = 1150, HOLD_MS = 2600;
+  var timer = null, at = -1, paused = false, pinned = false, userPaused = false;
+  // pinAt null means "follow the autoplay"; a number means a node was clicked
+  var pinAt = null;
+
+  function show(el, on) { if (el) el.classList.toggle('on', on); }
+
+  function render() {
+    for (var i = 0; i < BEATS.length; i++) {
+      var b = BEATS[i], visible = i <= at;
+      b.nodes.forEach(function (id) { show(nodeEls[id], visible); });
+      b.edges.forEach(function (id) { show(edgeEls[id], visible); });
+      b.labels.forEach(function (id) { show(labEls[id], visible); });
+    }
+  }
+
+  function setCaption(step) {
+    var s = byStep[step]; if (!s) return;
+    if (progress) progress.textContent = 'Step ' + s.step + ' of ' + ordered.length + ' · ' + s.label;
+    if (capTitle) capTitle.textContent = s.label;
+    if (capBody) capBody.textContent = s.summary || '';
+    if (capLink) { capLink.href = noteHref(s.url); capLink.hidden = false; }
+  }
+
+  function clearCaption() {
+    if (capTitle) capTitle.textContent = '';
+    if (capBody) capBody.textContent = '';
+    if (capLink) capLink.hidden = true;
+  }
+
+  function advance() {
+    at++;
+    if (at >= BEATS.length) {
+      timer = setTimeout(function () { if (!paused && !pinned) { at = -1; render(); clearCaption(); advance(); } }, HOLD_MS);
+      return;
+    }
+    render();
+    setCaption(BEATS[at].step);
+    timer = setTimeout(function () { if (!paused && !pinned) advance(); }, STEP_MS);
+  }
+
+  function stop() { if (timer) { clearTimeout(timer); timer = null; } }
+
+  // byUser records an explicit Pause, so scrolling away and back does not override the reader's choice
+  function play(byUser) {
+    if (reduceMotion) return;
+    stop();
+    paused = false;
+    if (byUser) userPaused = false;
+    if (playBtn) { playBtn.textContent = 'Pause'; playBtn.setAttribute('aria-pressed', 'true'); }
+    advance();
+  }
+
+  function pause(byUser) {
+    stop();
+    paused = true;
+    if (byUser) userPaused = true;
+    if (playBtn) { playBtn.textContent = 'Play'; playBtn.setAttribute('aria-pressed', 'false'); }
+  }
+
+  function reset() {
+    stop();
+    at = -1; pinned = false; pinAt = null;
+    Object.keys(nodeEls).forEach(function (k) { nodeEls[k].classList.remove('on'); });
+    Object.keys(edgeEls).forEach(function (k) { edgeEls[k].classList.remove('on'); });
+    Object.keys(labEls).forEach(function (k) { labEls[k].classList.remove('on'); });
+    clearCaption();
+  }
+
+  // clicking a node pins the tour to that step
+  function pinStep(step) {
+    var bi = beatOf[step];
+    if (bi === undefined) return;
+    stop();
+    paused = true;
+    pinned = true;
+    userPaused = false;
+    pinAt = bi;
+    at = bi;
+    render();
+    setCaption(step);
+    if (playBtn) { playBtn.textContent = 'Play'; playBtn.setAttribute('aria-pressed', 'false'); }
+  }
+
+  NODES.forEach(function (n) {
+    var nodeEl = nodeEls[n.id]; if (!nodeEl) return;
+    nodeEl.addEventListener('click', function () { pinStep(n.step); });
+  });
+
+  if (reduceMotion) {
+    // show the whole chart at once and leave it alone
+    Object.keys(nodeEls).forEach(function (k) { nodeEls[k].classList.add('on'); });
+    Object.keys(edgeEls).forEach(function (k) { edgeEls[k].classList.add('on'); });
+    Object.keys(labEls).forEach(function (k) { labEls[k].classList.add('on'); });
+    if (playBtn) playBtn.hidden = true;
+    if (replayBtn) replayBtn.hidden = true;
+    var first = ordered[0];
+    if (first) setCaption(first.step);
+  } else {
+    if (playBtn) playBtn.addEventListener('click', function () { if (paused) play(true); else pause(true); });
+    if (replayBtn) replayBtn.addEventListener('click', function () { reset(); play(true); });
+
+    // stop the tour when the figure is off screen or the tab is hidden,
+    // but never override a Pause the reader asked for
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { if (paused && !pinned && !userPaused) play(); }
+        else if (!paused) pause();
+      }, { threshold: 0 }).observe(host);
+    }
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { if (!paused) pause(); }
+      else if (paused && !pinned && !userPaused) play();
+    });
+
+    play();
+  }
 })();

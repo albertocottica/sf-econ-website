@@ -185,7 +185,7 @@ footer.foot .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-bet
 .mfig #msvg{width:100%;height:auto;display:block;min-width:760px}
 .mfig .node>rect.nc{fill:var(--card);stroke:var(--ink);stroke-width:2.4}
 .mfig .pbg{stroke:var(--ink);stroke-width:1.5}
-.mfig .node>text{font:500 14px var(--serif);fill:var(--ink);text-anchor:middle}
+.mfig .node>text{font:500 16px var(--serif);fill:var(--ink);text-anchor:middle}
 .mfig .nb{fill:var(--ink)}.mfig .node>.nbt{font:500 11px var(--mono);fill:var(--card)}
 .mfig .ms{stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
 .mfig .mtk{font:500 6.5px var(--mono);fill:var(--mute)}
@@ -194,8 +194,15 @@ footer.foot .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-bet
 .mfig .edge{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;opacity:0}
 .mfig .edge.on{opacity:1}
 .mfig .elab{font:500 11.5px var(--mono);fill:var(--ink);text-anchor:middle;opacity:0;transition:opacity .5s;paint-order:stroke;stroke:var(--card);stroke-width:5px;stroke-linejoin:round}.mfig .elab.on{opacity:1}
-.mcard{position:absolute;right:14px;bottom:14px;max-width:290px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:14px;display:none}
-.mcard.on{display:block}.mcard b{font-family:var(--serif);font-size:16px}
+.mfig .mbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px 4px 0}
+.mbtn{font:500 12.5px var(--mono);border:1.5px solid var(--ink);border-radius:10px;background:var(--ink);color:var(--card);padding:7px 16px;cursor:pointer}
+.mbtn.alt{background:var(--card);color:var(--ink)}
+.mbtn:hover{opacity:.85}
+.mprog{font:500 12.5px var(--mono);color:var(--mute);margin-left:auto}
+.mcap{min-height:76px;padding:12px 4px 4px;border-top:1px solid var(--line);margin-top:12px}
+.mcap b{display:block;font:500 20px/1.25 var(--serif);margin-bottom:6px}
+.mcap p{margin:0 0 6px;color:var(--mute);font:400 15px/1.5 var(--sans);max-width:70ch}
+.mcap a{font:500 12.5px var(--mono)}
 
 /* heritage */
 .tree-wrap{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:12px;position:relative;overflow:auto}
@@ -210,25 +217,21 @@ footer.foot .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-bet
 .tnode{cursor:pointer}.tnode.dim{opacity:.18}.tnode:hover rect,.tnode:hover ellipse,.tnode:hover polygon,.tnode.sel rect,.tnode.sel ellipse,.tnode.sel polygon{stroke-width:3.6}
 .tlink{fill:none;stroke:var(--ink);stroke-width:2;opacity:.55;transition:opacity .2s}.tlink.hl{opacity:1;stroke-width:3}.tlink.dim{opacity:.1}
 .talso{fill:none;stroke:var(--mute);stroke-width:1.6;stroke-dasharray:2 5;stroke-linecap:round}
-.tinfo{margin-top:var(--gap);display:grid;gap:8px}
 .tfall{display:none}
 @media (max-width:760px){.is-full.tree-host{display:none}.tfall{display:block}}
 details.nest ul{list-style:none;padding-left:20px;border-left:2px solid var(--line);margin:8px 0}
 details.nest>summary{cursor:pointer;font-weight:500}
-@media (max-width:760px){.tree-wrap{display:none}.tfall{display:block}}
+@media (max-width:760px){.tree-wrap{display:none}}
 
 /* heritage tree */
 .tree-host{position:relative;overflow-x:auto;margin-top:24px;padding-bottom:4px}
-.heritage-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;grid-template-areas:"tree info";gap:var(--gap);align-items:start;margin-top:24px}
-.heritage-layout .tree-col{grid-area:tree;min-width:0}
-.heritage-layout .tinfo{grid-area:info;margin-top:0;max-width:360px}
-.heritage-layout .tree-host{margin-top:0}
-@media (min-width:1101px){.heritage-layout .tinfo{position:sticky;top:84px;max-height:calc(100vh - 110px);overflow:auto}}
-@media (max-width:1100px){.heritage-layout{grid-template-columns:1fr;grid-template-areas:"info" "tree"}.heritage-layout .tinfo{max-width:none}}
-.htree{display:block;width:100%;height:auto;min-width:760px;overflow:visible}
+.heritage-layout{margin-top:24px}
+.heritage-layout .tree-col{min-width:0}
+.htree{display:block;width:100%;height:auto;overflow:visible}
 .is-compact .htree{min-width:720px}
+@media (max-width:760px){.is-full .htree{min-width:900px}}
 .htree .edge{fill:none;stroke:var(--c);stroke-linecap:round;transition:opacity .18s,stroke-width .18s}
-.htree .edge.e1{stroke-width:2;opacity:.65}
+.htree .edge.e1{stroke-width:2;opacity:.55}
 .htree .edge.e2{stroke-width:1.25;opacity:.4}
 .htree .edge.hl{opacity:.95;stroke-width:2.25}
 .htree .edge.dim{opacity:.06}
@@ -237,7 +240,7 @@ details.nest>summary{cursor:pointer;font-weight:500}
 .htree .hnode.dim{opacity:.2}
 .htree.focusing .hnode:not(.hl):not(.sel){opacity:.35}
 .htree .hnode .box{transition:fill .15s,stroke-width .15s}
-.htree .lbl{fill:var(--ink);font:500 14px var(--serif);pointer-events:none}
+.htree .lbl{fill:var(--ink);font:500 15px var(--serif);pointer-events:none}
 .htree .sub{fill:var(--mute);font:400 12px var(--sans);pointer-events:none}
 .htree .branch .box{fill:color-mix(in srgb,var(--c) 20%,var(--card));stroke:var(--c);stroke-width:2}
 .htree .branch .lbl{font:600 15px var(--serif)}
@@ -256,12 +259,19 @@ details.nest>summary{cursor:pointer;font-weight:500}
 .is-compact .htree .cluster .count{fill:var(--mute);font:500 11px var(--mono);pointer-events:none}
 .is-compact .htree .cluster .sub{font:400 12.5px var(--sans)}
 .is-compact .htree a{cursor:pointer}
-.tinfo .hinfo{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;max-width:640px}
+/* the info card floats over the viewport so it stays beside whatever node was clicked.
+   It sits bottom-left, over the shortest column, rather than covering the tallest one. */
+.tinfo{position:fixed;left:24px;bottom:24px;z-index:80;width:min(340px,calc(100vw - 32px));max-height:58vh;overflow:auto}
+.tinfo[hidden]{display:none}
+@media (max-width:900px){.tinfo{left:0;right:0;bottom:0;width:auto;max-height:70vh}}
+.tinfo .hinfo{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.hinfo .hiclose{position:absolute;top:8px;right:8px;background:none;border:0;font-size:22px;line-height:1;cursor:pointer;color:var(--mute);padding:4px 8px}
+.hinfo .hiclose:hover{color:var(--ink)}
 .hinfo .hmeta{margin:0 0 6px;color:var(--mute);font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.05em}
 .hinfo h2{margin:0 0 10px;font:400 26px/1.15 var(--serif)}
 .hinfo .hwhy{margin:0 0 8px;color:var(--ink);font:400 16px/1.45 var(--serif)}
 .hinfo .hhook{margin:0 0 14px;color:var(--mute);font:400 15px/1.5 var(--serif)}
-.hbadges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.hbadges{display:flex;flex-wrap:wrap;gap:6px}
 .hbadge{display:inline-flex;flex-direction:column;border-left:3px solid var(--c);padding:2px 10px;font:500 12px var(--sans);background:color-mix(in srgb,var(--c) 10%,transparent);border-radius:0 6px 6px 0}
 .hbadge small{font:400 10.5px var(--mono);color:var(--mute)}
 .hfilters{position:fixed;top:88px;right:24px;z-index:100;width:280px;max-height:calc(100vh - 120px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.1);font-size:13px}
@@ -277,9 +287,6 @@ details.nest>summary{cursor:pointer;font-weight:500}
 .hchip.on{background:var(--c,var(--ink));border-color:var(--c,var(--ink));color:var(--card)}
 .hf-toggle{position:fixed;top:88px;right:24px;z-index:99;padding:10px 16px;background:var(--ink);color:var(--card);border:0;border-radius:100px;font:500 12px var(--sans);cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.14)}
 .hf-toggle[aria-expanded=true]{visibility:hidden}
-.tfall{display:none}
-details.nest ul{list-style:none;padding-left:20px;border-left:2px solid var(--line);margin:8px 0}
-details.nest>summary{cursor:pointer;font-weight:500}
 
 /* notes */
 .note{padding:40px 0 80px}.note .wrap{max-width:820px}

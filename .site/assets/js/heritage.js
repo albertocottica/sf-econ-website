@@ -1,6 +1,6 @@
 /* Heritage tree: branches → sub-branches → thinkers.
    mode "teaser": compact overview for the landing page (branches → sub-branches, names as a one-line list).
-   mode "page":   full tree with every thinker, filters and an info panel.
+   mode "page":   full tree, one column per branch, filters and a fixed info card.
    Styling lives in site.css under "heritage tree"; this file only builds the SVG and wires interaction. */
 (function () {
   'use strict';
@@ -57,40 +57,10 @@
     (clustersByBranch[c.branch] = clustersByBranch[c.branch] || []).push(c);
   });
 
-  // ---- layout (all numbers in SVG user units) ----
-  var L = compact
-    ? { W: 880, bx: 0, bw: 190, cx: 270, cw: 610, rowH: 52, rowGap: 8, groupGap: 22, branchGap: 36, pad: 4 }
-    : { W: 920, bx: 0, bw: 190, cx: 250, cw: 250, rowH: 34, rowGap: 2, groupGap: 22, branchGap: 48, pad: 4, tx: 560, tw: 360 };
-  var CLUSTER_H = compact ? 44 : 46, BRANCH_H = 48;
-
-  var pos = { branch: {}, cluster: {}, rows: {} };
-  var cursor = L.pad;
-  BRANCH_ORDER.forEach(function (bn) {
-    var cls = clustersByBranch[bn] || [];
-    var top = cursor, y = cursor;
-    cls.forEach(function (c, i) {
-      var n = compact ? 1 : Math.max(1, (byCluster[c.id] || []).length);
-      var h = n * L.rowH + (n - 1) * L.rowGap;
-      if (compact) h = L.rowH;
-      pos.cluster[c.id] = { y: y + h / 2, top: y, h: h };
-      y += h + (i < cls.length - 1 ? L.groupGap : 0);
-    });
-    pos.branch[bn] = (top + y) / 2;
-    cursor = y + L.branchGap;
-  });
-  var H = cursor - L.branchGap + L.pad;
-
-  // ---- svg ----
-  host.innerHTML = '';
-  host.classList.add('tree-host', compact ? 'is-compact' : 'is-full');
-  var svg = el('svg', {
-    viewBox: '0 0 ' + L.W + ' ' + H, role: 'group', class: 'htree',
-    'aria-label': compact ? 'Heritage overview: branches and sub-branches' : 'Heritage tree: branches, sub-branches, thinkers'
-  }, host);
-  var gl = el('g', { class: 'links' }, svg);
-  var gn = el('g', { class: 'nodes' }, svg);
-
+  var BRANCH_H = 48;
+  var svg, gl, gn;
   var branchNodes = {}, clusterNodes = {}, thinkerNodes = {}, edges = [];
+  var pos = { branch: {}, cluster: {} };
 
   function curve(x1, y1, x2, y2) {
     var mx = (x1 + x2) / 2;
@@ -103,30 +73,48 @@
   var branchUrl = {};
   for (var bi = 0; bi < D.branches.length; bi++) branchUrl[D.branches[bi].title] = D.branches[bi].url;
 
-  // branches
-  BRANCH_ORDER.forEach(function (bn) {
-    if (pos.branch[bn] === undefined) return;
-    var c = colorOf(bn), y = pos.branch[bn];
-    var g = el('g', { class: 'hnode branch', transform: 'translate(' + L.bx + ' ' + (y - BRANCH_H / 2) + ')', style: '--c:' + c }, gn);
-    var inner = compact ? el('a', { href: heritageUrl, 'aria-label': bn }, g) : g;
-    if (!compact) { g.setAttribute('tabindex', 0); g.setAttribute('role', 'button'); g.setAttribute('aria-label', bn + ', branch'); }
-    el('rect', { class: 'box', width: L.bw, height: BRANCH_H, rx: 12 }, inner);
-    el('text', { class: 'lbl', x: L.bw / 2, y: BRANCH_H / 2, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, inner, bn);
-    branchNodes[bn] = g;
-    g.addEventListener('click', function () { if (!compact) toggleBranch(bn); });
-    g.addEventListener('keydown', function (ev) { if (!compact && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); toggleBranch(bn); } });
-  });
+  // ---- teaser layout (landing page): branches stacked, clusters to their right ----
+  if (compact) {
+    var L = { W: 880, bx: 0, bw: 190, cx: 270, cw: 610, rowH: 52, groupGap: 22, branchGap: 36, pad: 4 };
+    var CLUSTER_H = 44;
+    var cursor = L.pad;
+    BRANCH_ORDER.forEach(function (bn) {
+      var cls = clustersByBranch[bn] || [];
+      var top = cursor, y = cursor;
+      cls.forEach(function (c, i) {
+        pos.cluster[c.id] = { y: y + L.rowH / 2, top: y };
+        y += L.rowH + (i < cls.length - 1 ? L.groupGap : 0);
+      });
+      pos.branch[bn] = (top + y) / 2;
+      cursor = y + L.branchGap;
+    });
+    var Hc = cursor - L.branchGap + L.pad;
 
-  // sub-branches
-  D.clusters.forEach(function (cl) {
-    var p = pos.cluster[cl.id]; if (!p) return;
-    var c = colorOf(cl.branch);
-    var g = el('g', { class: 'hnode cluster', transform: 'translate(' + L.cx + ' ' + (p.y - CLUSTER_H / 2) + ')', style: '--c:' + c }, gn);
-    var inner = compact ? el('a', { href: heritageUrl + '#' + cl.id, 'aria-label': cl.title }, g) : g;
-    if (!compact) { g.setAttribute('tabindex', 0); g.setAttribute('role', 'button'); g.setAttribute('aria-label', cl.title + ', sub-branch of ' + cl.branch); }
-    el('rect', { class: 'box', width: L.cw, height: CLUSTER_H, rx: 10 }, inner);
-    var people = (byCluster[cl.id] || []).map(function (r) { return r.t; });
-    if (compact) {
+    host.innerHTML = '';
+    host.classList.add('tree-host', 'is-compact');
+    svg = el('svg', {
+      viewBox: '0 0 ' + L.W + ' ' + Hc, role: 'group', class: 'htree',
+      'aria-label': 'Heritage overview: branches and sub-branches'
+    }, host);
+    gl = el('g', { class: 'links' }, svg);
+    gn = el('g', { class: 'nodes' }, svg);
+
+    BRANCH_ORDER.forEach(function (bn) {
+      if (pos.branch[bn] === undefined) return;
+      var c = colorOf(bn), y = pos.branch[bn];
+      var g = el('g', { class: 'hnode branch', transform: 'translate(' + L.bx + ' ' + (y - BRANCH_H / 2) + ')', style: '--c:' + c }, gn);
+      var inner = el('a', { href: heritageUrl, 'aria-label': bn }, g);
+      el('rect', { class: 'box', width: L.bw, height: BRANCH_H, rx: 12 }, inner);
+      el('text', { class: 'lbl', x: L.bw / 2, y: BRANCH_H / 2, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, inner, bn);
+    });
+
+    D.clusters.forEach(function (cl) {
+      var p = pos.cluster[cl.id]; if (!p) return;
+      var c = colorOf(cl.branch);
+      var g = el('g', { class: 'hnode cluster', transform: 'translate(' + L.cx + ' ' + (p.y - CLUSTER_H / 2) + ')', style: '--c:' + c }, gn);
+      var inner = el('a', { href: heritageUrl + '#' + cl.id, 'aria-label': cl.title }, g);
+      el('rect', { class: 'box', width: L.cw, height: CLUSTER_H, rx: 10 }, inner);
+      var people = (byCluster[cl.id] || []).map(function (r) { return r.t; });
       el('text', { class: 'lbl', x: 16, y: 18 }, inner, cl.title);
       var names = '', shown = 0;
       for (var i = 0; i < people.length; i++) {
@@ -137,37 +125,101 @@
       if (shown < people.length) names += '  +' + (people.length - shown);
       el('text', { class: 'sub', x: 16, y: 34 }, inner, names);
       el('text', { class: 'count', x: L.cw - 16, y: 18, 'text-anchor': 'end' }, inner, people.length + ' thinkers');
-    } else {
-      var lines = wrap2(cl.title, 26);
-      lines.forEach(function (ln, i) {
-        el('text', { class: 'lbl', x: L.cw / 2, y: CLUSTER_H / 2 + (i - (lines.length - 1) / 2) * 16, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, inner, ln);
-      });
-    }
+
+      var x1 = L.bx + L.bw, y1 = pos.branch[cl.branch], x2 = L.cx, y2 = p.y;
+      el('path', { d: curve(x1, y1, x2, y2), class: 'edge e1', style: '--c:' + c }, gl);
+    });
+    return;
+  }
+
+  // ---- full layout (heritage page): one column per branch, side by side ----
+  var W = 1120;
+  var GAP = 24;
+  var COLW = (W - GAP * (BRANCH_ORDER.length - 1)) / BRANCH_ORDER.length;
+  var TOP = 2, BRANCH_GAP = 10, CLUSTER_H = 34, HEAD_GAP = 2, ROW_H = 21, ROW_GAP = 0, CLUSTER_GAP = 6;
+  var colX = {}, colTop = {}, maxH = TOP;
+  var prevCluster = {};
+
+  BRANCH_ORDER.forEach(function (bn, ci) {
+    var x = ci * (COLW + GAP);
+    colX[bn] = x;
+    colTop[bn] = TOP;
+    pos.branch[bn] = TOP + BRANCH_H / 2;
+    var y = TOP + BRANCH_H + BRANCH_GAP;
+    (clustersByBranch[bn] || []).forEach(function (c) {
+      var rows = byCluster[c.id] || [];
+      var rowTop = y + CLUSTER_H + HEAD_GAP;
+      var rowsH = rows.length ? rows.length * ROW_H + (rows.length - 1) * ROW_GAP : 0;
+      var lastRowY = rows.length ? rowTop + (rows.length - 1) * (ROW_H + ROW_GAP) + ROW_H / 2 : rowTop;
+      pos.cluster[c.id] = { x: x, top: y, rowTop: rowTop, bottom: lastRowY, y: y + CLUSTER_H / 2 };
+      y = rowTop + rowsH + CLUSTER_GAP;
+    });
+    if (y > maxH) maxH = y;
+  });
+  var H = maxH + TOP;
+
+  host.innerHTML = '';
+  host.classList.add('tree-host', 'is-full');
+  svg = el('svg', {
+    viewBox: '0 0 ' + W + ' ' + H, role: 'group', class: 'htree',
+    'aria-label': 'Heritage tree: four branches in columns, each with its sub-branches and thinkers'
+  }, host);
+  gl = el('g', { class: 'links' }, svg);
+  gn = el('g', { class: 'nodes' }, svg);
+
+  // branch headers, one per column
+  BRANCH_ORDER.forEach(function (bn) {
+    if (colX[bn] === undefined) return;
+    var c = colorOf(bn);
+    var g = el('g', { class: 'hnode branch', transform: 'translate(' + colX[bn] + ' ' + colTop[bn] + ')', style: '--c:' + c }, gn);
+    g.setAttribute('tabindex', 0); g.setAttribute('role', 'button'); g.setAttribute('aria-label', bn + ', branch');
+    el('rect', { class: 'box', width: COLW, height: BRANCH_H, rx: 12 }, g);
+    el('text', { class: 'lbl', x: COLW / 2, y: BRANCH_H / 2, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, g, bn);
+    branchNodes[bn] = g;
+    g.addEventListener('click', function () { toggleBranch(bn); });
+    g.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggleBranch(bn); } });
+  });
+
+  // sub-branches and their thinkers, down each column
+  D.clusters.forEach(function (cl) {
+    var p = pos.cluster[cl.id]; if (!p) return;
+    var c = colorOf(cl.branch);
+    var g = el('g', { class: 'hnode cluster', transform: 'translate(' + p.x + ' ' + p.top + ')', style: '--c:' + c }, gn);
+    g.setAttribute('tabindex', 0); g.setAttribute('role', 'button'); g.setAttribute('aria-label', cl.title + ', sub-branch of ' + cl.branch);
+    el('rect', { class: 'box', width: COLW, height: CLUSTER_H, rx: 10 }, g);
+    var lines = wrap2(cl.title, 30);
+    lines.forEach(function (ln, i) {
+      el('text', { class: 'lbl', x: COLW / 2, y: CLUSTER_H / 2 + (i - (lines.length - 1) / 2) * 16, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, g, ln);
+    });
     clusterNodes[cl.id] = g;
-    g.addEventListener('click', function () { if (!compact) toggleCluster(cl.id); });
-    g.addEventListener('keydown', function (ev) { if (!compact && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); toggleCluster(cl.id); } });
+    g.addEventListener('click', function () { toggleCluster(cl.id); });
+    g.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggleCluster(cl.id); } });
 
-    // edge branch → cluster
-    var x1 = L.bx + L.bw, y1 = pos.branch[cl.branch], x2 = L.cx, y2 = p.y;
-    var path = el('path', { d: curve(x1, y1, x2, y2), class: 'edge e1', style: '--c:' + c }, gl);
-    edges.push({ el: path, branch: cl.branch, cluster: cl.id, thinker: null });
+    // connector: branch header feeds the first cluster; later clusters chain from the one above
+    var spineX = p.x + 14;
+    var prev = prevCluster[cl.branch];
+    var fromY = prev ? prev.bottom : (colTop[cl.branch] + BRANCH_H);
+    var fromX = prev ? spineX : (p.x + COLW / 2);
+    var e1 = el('path', { d: 'M' + fromX + ' ' + fromY + ' V' + p.top, class: 'edge e1', style: '--c:' + c }, gl);
+    edges.push({ el: e1, branch: cl.branch, cluster: cl.id, thinker: null });
+    prevCluster[cl.branch] = p;
 
-    // thinker rows (full mode only)
-    if (compact) return;
-    (byCluster[cl.id] || []).forEach(function (r, i) {
-      var t = r.t, ty = p.top + i * (L.rowH + L.rowGap) + L.rowH / 2;
-      var tg = el('g', { class: 'hnode thinker' + (r.primary ? '' : ' secondary'), transform: 'translate(' + L.tx + ' ' + (ty - L.rowH / 2) + ')', style: '--c:' + c, tabindex: 0, role: 'button' }, gn);
+    var rows = byCluster[cl.id] || [];
+    // one spine down the dot column (x + 14), clear of the labels that start at x + 28
+    var lastY = rows.length ? p.rowTop + (rows.length - 1) * (ROW_H + ROW_GAP) + ROW_H / 2 : p.bottom;
+    var e2 = el('path', { d: 'M' + spineX + ' ' + p.rowTop + ' V' + lastY, class: 'edge e2', style: '--c:' + c }, gl);
+    edges.push({ el: e2, branch: cl.branch, cluster: cl.id, thinker: null });
+
+    rows.forEach(function (r, i) {
+      var t = r.t, ty = p.rowTop + i * (ROW_H + ROW_GAP) + ROW_H / 2;
+      var tg = el('g', { class: 'hnode thinker' + (r.primary ? '' : ' secondary'), transform: 'translate(' + p.x + ' ' + (ty - ROW_H / 2) + ')', style: '--c:' + c, tabindex: 0, role: 'button' }, gn);
       var also = (t.branches || []).filter(function (b) { return slugify(b.sub_branch) !== cl.id; }).map(function (b) { return b.sub_branch; });
       tg.setAttribute('aria-label', t.title + ', ' + t.profession + (also.length ? ' (also in ' + also.join(', ') + ')' : ''));
-      el('rect', { class: 'box', width: L.tw, height: L.rowH, rx: 8 }, tg);
-      el('circle', { class: 'dot', cx: 16, cy: L.rowH / 2, r: 4.5 }, tg);
-      el('text', { class: 'lbl', x: 32, y: L.rowH / 2, 'dominant-baseline': 'central' }, tg, t.title);
-      if (t.profession) el('text', { class: 'sub', x: L.tw - 12, y: L.rowH / 2, 'text-anchor': 'end', 'dominant-baseline': 'central' }, tg, t.profession);
+      el('rect', { class: 'box', width: COLW, height: ROW_H, rx: 6 }, tg);
+      el('circle', { class: 'dot', cx: 14, cy: ROW_H / 2, r: 4 }, tg);
+      el('text', { class: 'lbl', x: 28, y: ROW_H / 2, 'dominant-baseline': 'central' }, tg, t.title);
       if (also.length) el('title', {}, tg, t.title + ' also appears in ' + also.join(', '));
       (thinkerNodes[t.id] = thinkerNodes[t.id] || []).push(tg);
-
-      var te = el('path', { d: curve(L.cx + L.cw, p.y, L.tx + 2, ty), class: 'edge e2', style: '--c:' + c }, gl);
-      edges.push({ el: te, branch: cl.branch, cluster: cl.id, thinker: t.id });
 
       tg.addEventListener('click', function () { selectThinker(t); });
       tg.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); selectThinker(t); } });
@@ -177,8 +229,6 @@
       tg.addEventListener('blur', unhighlight);
     });
   });
-
-  if (compact) return;
 
   // ---- interaction (full mode) ----
   var state = { branch: '', cluster: '', discipline: '', q: '', sel: null };
@@ -213,6 +263,16 @@
     if (t.summary) html += '<p class="hhook">' + esc(t.summary) + '</p>';
     return html;
   }
+
+  // The card is fixed to the viewport, so it stays beside the reader wherever they click.
+  function setInfo(html) {
+    var box = document.getElementById('treeInfo');
+    if (!box) return;
+    box.innerHTML = '<div class="hinfo">' + html + '<button type="button" class="hiclose" aria-label="Close">×</button></div>';
+    box.hidden = false;
+    box.querySelector('.hiclose').onclick = resetInfo;
+  }
+
   function showInfo(t) {
     var box = document.getElementById('treeInfo');
     if (!box) { if (t.url) location.href = noteHref(t.url); return; }
@@ -221,35 +281,29 @@
       var badges = (t.branches || []).map(function (b) {
         return '<span class="hbadge" style="--c:' + colorOf(b.branch) + '">' + esc(b.sub_branch) + '<small>' + esc(b.branch) + '</small></span>';
       }).join('');
-      box.innerHTML = '<div class="hinfo">' +
-        '<p class="hmeta">' + esc(t.profession) + (t.status ? ' · ' + esc(t.status) : '') + '</p>' +
-        '<h2>' + esc(t.title) + '</h2>' +
-        infoText(t) +
-        '<div class="hbadges">' + badges + '</div>' +
-        '<a class="btn sm" href="' + noteHref(t.url) + '">Open note</a></div>';
+      setInfo('<p class="hmeta">' + esc(t.profession) + (t.status ? ' · ' + esc(t.status) : '') + '</p>' +
+        '<h2>' + esc(t.title) + '</h2>' + infoText(t) +
+        '<div class="hbadges">' + badges + '</div>');
     } else if (t.type === 'cluster') {
       // Clusters: sub-branch name with branch badge
       var badges = '<span class="hbadge" style="--c:' + colorOf(t.branch) + '">' + esc(t.branch) + '</span>';
-      box.innerHTML = '<div class="hinfo">' +
-        '<h2>' + esc(t.title) + '</h2>' +
-        infoText(t) +
-        '<div class="hbadges">' + badges + '</div>' +
-        '<a class="btn sm" href="' + noteHref(t.url) + '">Open note</a></div>';
+      setInfo('<h2>' + esc(t.title) + '</h2>' + infoText(t) +
+        '<div class="hbadges">' + badges + '</div>');
     } else if (t.type === 'branch') {
       // Branches: list of sub-branches
       var sub = (t.sub_branches || []).map(function (s) {
         return '<span class="hbadge" style="--c:' + colorOf(t.branch) + '">' + esc(s) + '</span>';
       }).join('');
-      box.innerHTML = '<div class="hinfo">' +
-        '<h2>' + esc(t.title) + '</h2>' +
-        infoText(t) +
-        '<div class="hbadges">' + sub + '</div>' +
-        '<a class="btn sm" href="' + noteHref(t.url) + '">Open note</a></div>';
+      setInfo('<h2>' + esc(t.title) + '</h2>' + infoText(t) +
+        '<div class="hbadges">' + sub + '</div>');
     }
   }
 
   function resetInfo() {
-    document.getElementById('treeInfo').innerHTML = '<p class="hint">Click a node to read why it is here.</p>';
+    var box = document.getElementById('treeInfo');
+    if (!box) return;
+    box.innerHTML = '';
+    box.hidden = true;
   }
   function toggleBranch(bn) {
     state.branch = state.branch === bn ? '' : bn;
@@ -360,7 +414,10 @@
   if (location.hash && clustersById[location.hash.slice(1)]) {
     state.cluster = location.hash.slice(1); apply();
     var cn = clusterNodes[state.cluster];
-    if (cn) setTimeout(function () { cn.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 50);
+    if (cn) {
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      setTimeout(function () { cn.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' }); }, 50);
+    }
   }
 
   // small-screen fallback list

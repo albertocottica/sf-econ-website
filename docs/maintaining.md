@@ -134,8 +134,8 @@ All client-side JavaScript lives in `.site/assets/js/` and is plain JavaScript. 
 | `model.js` | Landing | Constants in the file | The Linden Cove model. Exposes `createTown`, `step`, `run`, `poolMove`, and helpers |
 | `sim-ui.js` | Landing | `#site-data` JSON, the model, the ticker | Sliders, budget pool, clock, events, charts, follow-the-change map, figure messages |
 | `ticker.js` | Landing | `site-data.ticker`, model output | Builds the Courier's headlines from rules and templates |
-| `method-panel.js` | Landing | `site-data.method` | Draws the method flowchart and the step cards |
-| `heritage.js` | Landing and Heritage | `site-data.heritage` | Draws the tree, filters, info panel, and teaser, and builds the small-screen list |
+| `method-panel.js` | Landing | `site-data.method` | Draws the method flowchart and runs its timed reveal: Pause/Play, Replay, the step progress line and the caption strip. Clicking a node pins the tour to that step. Stops when the figure is off screen and shows everything at once under `prefers-reduced-motion` |
+| `heritage.js` | Landing and Heritage | `site-data.heritage` | Draws the tree (one column per branch on the Heritage page, stacked teaser on the landing page), the filters, the fixed info card, and the small-screen list |
 | `palette.js` | Every page | `#palettes-data` JSON | Footer palette switcher, saved in `localStorage` |
 
 The page passes server data to these modules as JSON in `<script type="application/json">` blocks. The `json` filter escapes `<` to `\u003c`, so the JSON is safe inside the HTML.

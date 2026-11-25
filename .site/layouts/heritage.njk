@@ -6,11 +6,11 @@ layout: base.njk
   <h1>{{ title }}</h1>
   <p class="lead">We aspire to a unified social science based on four principles; the Danger Zone, the Chemical Wedding, the Pluriversity and the Broken Tower. We walk in the footsteps of many economists, city thinkers, game designers, writers and anthropologists, and build on their ideas.</p>
   <div class="heritage-layout">
-    <aside class="tinfo" id="treeInfo"><p class="hint">Click a node to read why it is here.</p></aside>
     <div class="tree-col">
       <div id="tree" tabindex="0" aria-label="Heritage tree"></div>
       <div class="tfall" id="treeFall"></div>
     </div>
+    <aside class="tinfo" id="treeInfo" aria-live="polite" aria-label="About the selected node" hidden></aside>
   </div>
 </div></section>
 <script id="site-data" type="application/json">{{ { heritage: heritage } | json | safe }}</script>

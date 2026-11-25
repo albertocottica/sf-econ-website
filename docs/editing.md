@@ -299,14 +299,14 @@ Rules:
 - **Four branches.** The Danger Zone (rust), The Chemical Wedding (sky), The Pluriversity (sun), and The Broken Tower (leaf). The colour map is in `.site/plugins/heritage.js`.
 - **`status` is a heritage value**, not an epistemic one: `agreed`, `bridge`, `shared`, `contested`, or `full_only`. If the same note is also a person page with an epistemic `status`, put the heritage value in `heritage_status` instead. The builder reads `heritage_status` first.
 - **Any folder works.** The tree includes every note with `heritage_type`, not only notes in `heritage/`. This lets a `people/` note act as its own tree entry.
-- **Info panel text.** When any node is clicked, the panel shows `why` and then `summary`. Write the first sentence in `why` and the rest in `summary`.
+- **Info card text.** When any node is clicked, the card shows `why` and then `summary`. Write the first sentence in `why` and the rest in `summary`. The card floats bottom-left and closes with ×.
 - **Deep links.** `/heritage/#<cluster-id>` opens the page with that cluster selected and scrolled into view.
 - **Adding a thinker.** Copy `templates/heritage-node.md` into `heritage/` and fill it in.
 - **Adding a branch or cluster.** Copy `templates/heritage-branch.md` or `templates/heritage-cluster.md`. A cluster with no thinkers is a build error.
 
 ## How we work
 
-Folder: `method/`. The scroll-driven flowchart on the landing page (`#method`) and the list of steps both read the notes that have a `step` number.
+Folder: `method/`. The flowchart on the landing page (`#method`) and the list of steps both read the notes that have a `step` number. The chart plays the steps in order when it comes on screen; the reader can pause, replay, or click a node to hold on that step.
 
 ```yaml
 ---
@@ -333,7 +333,8 @@ Rules:
 - Steps are ordered by `step`, which must be unique.
 - `tone` picks the node colour (`rust`, `sky`, `leaf`, `green`, `sun`, and so on).
 - Changing a step number or its links changes the chart. Check the animation after any edit.
-- The summary appears on the chart; the body appears on the note page at `/method/<slug>/`.
+- The summary appears in the caption strip under the chart and on the note page at `/method/<slug>/`. The strip follows `state_label` and `summary`.
+- `caption_title` and `caption_body` are reserved for the caption strip but are **not rendered yet**; the current values are out of step with their notes, so they need a review before they are wired up.
 
 ## Models
 

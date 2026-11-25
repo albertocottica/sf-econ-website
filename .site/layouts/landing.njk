@@ -102,7 +102,19 @@ layout: base.njk
 
 <section class="method" id="method" aria-label="How we work with a place"><div class="wrap">
   <div class="mname">{{ 'copy/process-name.md' | noteBody(page.url) | safe }}</div>
-  <div class="mfig"><svg id="msvg" viewBox="0 0 1220 600" role="img" aria-label="Flowchart: a place chooses its economy"></svg><div class="mcard" id="mcard"></div></div>
+  <div class="mfig">
+    <svg id="msvg" viewBox="-30 -10 1300 600" role="img" aria-label="Flowchart: a place chooses its economy"></svg>
+    <div class="mbar">
+      <button type="button" id="mplay" class="mbtn" aria-pressed="true">Pause</button>
+      <button type="button" id="mreplay" class="mbtn alt">Replay</button>
+      <span class="mprog" id="mprogress" aria-live="polite"></span>
+    </div>
+    <div class="mcap" aria-live="polite">
+      <b id="mcapTitle"></b>
+      <p id="mcapBody"></p>
+      <a id="mcapLink" href="#" hidden>Open the note</a>
+    </div>
+  </div>
 </div></section>
 
 <section class="s" id="work"><div class="wrap">
