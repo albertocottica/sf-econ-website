@@ -11,8 +11,8 @@ who: "The Lab, Edgeryders, Yudhanjaya Wijeratne"
 motif: megacity
 why_it_matters: "The Lab's proof that fiction and economics can be played, with the open-source stance already in place."
 featured: true
-source_url: "https://edgeryders.eu/t/about-witness/16071"
-source_label: "Edgeryders, About Witness"
+source_url: "https://yudhanjaya.com/docs/experiments/witness/"
+source_label: "Yudhanjaya, The floating city of Witness"
 tags: [showcase]
 ---
 

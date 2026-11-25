@@ -11,8 +11,8 @@ who: "The Lab, Fondazione di Comunità Messina"
 motif: bridge
 why_it_matters: "Shows where the Lab is heading next: a standing institutional home for place-based work."
 featured: false
-source_url: "https://fdcmessina.org/about-us"
-source_label: "Fondazione di Comunità Messina, About us"
+source_url: "https://scifieconomicslab.net/an-alliance"
+source_label: "scifieconomicslab.net, An alliance"
 tags: [showcase]
 ---
 
@@ -29,4 +29,9 @@ The Lab formalises the partnership and takes up the Messina base. Its first publ
 ## How it turned out
 
 Fondazione di Comunità Messina formally acquired the Saint Brigid site in summer 2026. Site remodeling and incorporation are ongoing.
+
+## Sources
+
+- [scifieconomicslab.net, An alliance](https://scifieconomicslab.net/an-alliance)
+- [Fondazione di Comunità Messina, About us](https://fdcmessina.org/about-us)
 
