@@ -11,16 +11,14 @@ who: "The Lab, Fondazione di Comunità Messina"
 motif: bridge
 why_it_matters: "Shows where the Lab is heading next: a standing institutional home for place-based work."
 featured: false
-source_url: "https://scifieconomicslab.net/an-alliance"
-source_label: "scifieconomicslab.net, A new alliance"
 tags: [showcase]
 ---
 
 ## What it is
 
-In 2027 the Lab turns its long friendship with Fondazione di Comunita Messina into a long-term alliance. As part of it the Lab joins Eutopia, described on the Lab's site as a new hub for policy research and training for human development. The hub works on place-based development, and the Lab contributes ideas and capabilities from new economic thinking and economic science fiction.
+In 2027 the Lab turns its long friendship with [Fondazione di Comunità Messina](https://fdcmessina.org/about-us) into a long-term alliance. As part of it the Lab joins Eutopia, described on the Lab's site as a new hub for policy research and training for human development. The hub works on place-based development, and the Lab contributes ideas and capabilities from new economic thinking and economic science fiction.
 
-The hub's headquarters are in the former convent of Saint Brigid in central Messina, which gives the Lab its base in Sicily.
+The hub's headquarters are in the former nunnery of Saint Brigid in central Messina, which gives the Lab its base in Sicily.
 
 ## What we did
 
@@ -28,9 +26,5 @@ The Lab formalises the partnership and takes up the Messina base. Its first publ
 
 ## How it turned out
 
-It is too early for results. The announcement does not say how the base will be staffed.
+Fondazione di Comunità Messina formally acquired the Saint Brigid site in summer 2026. Site remodeling and incorporation are ongoing.
 
-## Sources
-
-- [scifieconomicslab.net, A new alliance](https://scifieconomicslab.net/an-alliance)
-- [scifieconomicslab.net home page](https://scifieconomicslab.net/)
