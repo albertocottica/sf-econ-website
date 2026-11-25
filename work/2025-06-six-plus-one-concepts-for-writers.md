@@ -14,12 +14,11 @@ source_label: "Edgeryders, Six (plus one) concepts from economics to write good 
 tags: [showcase]
 summary: "Six economic ideas, plus one rule for science fiction, that writers can recombine into believable alternative economies, each paired with novels that already use it."
 why_it_matters: "A ready-made starter kit for writers: each concept comes with books that show it at work."
-confirm:
-  - "The plenary of four practitioner cases comes from the brief and is not in the post. The workshop date and attendance are not stated."
 ---
+
 ## What it is
 
-A short slide set for fiction writers, posted to Edgeryders on 11 June 2025 after a workshop led by a colleague at Istanbul Innovation Days. The organiser had asked for five concepts, and the slides give six from economics and one general rule.
+Alberto Cottica posted a short slide set for fiction writers to Edgeryders on 11 June 2025, after a workshop led by a colleague at Istanbul Innovation Days. The organiser had asked for five concepts, and the slides give six from economics and one general rule.
 
 ## What we did
 
@@ -37,7 +36,7 @@ The seven items, each with the fiction that illustrates it:
 
 ## How it turned out
 
-The slides are public and reusable. The source records no audience outcome, and the workshop slot was very short.
+The slides are public and reusable. The source says nothing about how an audience received them, and the workshop slot was very short.
 
 ## Sources
 

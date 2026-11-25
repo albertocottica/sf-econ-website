@@ -14,12 +14,11 @@ source_label: "Edgeryders, The Science Fiction Economics Residency 2024"
 tags: [showcase]
 summary: "Four days near Messina in May 2024 in which policymakers, economists and writers built a post-neoclassical economy as a published encyclopedia entry and a story."
 why_it_matters: "The place-based, in-person format, and the closest precedent for working with a mayor."
-confirm:
-  - "The programme and aims come from the concept and invitation threads, written before the event. The final headcount, the exact data each group used and participant feedback are not in any source we found. Ask Alberto or Nadia for the post-event report and the other groups' outputs."
 ---
+
 ## What it is
 
-A four-day residency near Messina, Sicily, from 6 to 9 May 2024, co-organised with Fondazione di Comunita Messina. It grew out of the earlier Science Fiction Economics Seminar. Its stated vision was that post-neoclassical economics (degrowth, doughnut economics, mission economics, modern monetary theory, ergodicity economics) should be turned into concrete policy mixes, with a pathway to an economy that complies with the Paris Agreement.
+The residency ran for four days near Messina, Sicily, from 6 to 9 May 2024, co-organised with Fondazione di Comunita Messina. It grew out of the earlier Science Fiction Economics Seminar. Its stated vision was that post-neoclassical economics (degrowth, doughnut economics, mission economics, modern monetary theory, ergodicity economics) should be turned into concrete policy mixes, with a pathway to an economy that complies with the Paris Agreement.
 
 The invitation aimed at about twenty people, with the largest share from policy: civil servants and politicians, including mayors or former mayors. The rest were academics (economists, social scientists, economic anthropologists, possibly a futurist), civil society, and two or three science fiction authors and artists. The organisers wanted the Global South represented and the gender balance kept even, and recruited from a long list of about a hundred trusted contacts and the people they nominated.
 
@@ -33,7 +32,7 @@ The design borrowed from Space Economy Camp in 2023. Its reflection thread had f
 
 ## How it turned out
 
-Two groups' work is documented. [[2025-03-the-great-retrofit-world|The Great Retrofit]] is a costed plan to renovate 60,000 homes, written as if from 2050, and it is the best documented result. The second, from a group of six players, is Anissem, a Mediterranean coastal city in 2050 that may once have been Messina. Desertification pushes it to turn unused land into zones of life, and it admits newcomers without papers or money if they bring knowledge the community lacks. Its proposed governance model is called OASES, for Organised Adaption and Solidarity Embedded in Society. The group worked through characters, each played by a participant: two migrants, an energy researcher, a student, a former mayor and a psychologist. They produced a wiki page for the city, a presentation framed as a 2048 forum, and about a dozen forum posts. The concept and invitation threads were written before the event, so this note does not report participant feedback.
+Two groups' work is documented. [[2025-03-the-great-retrofit-world|The Great Retrofit]] is a costed plan to renovate 60,000 homes, written as if from 2050, and it is the most fully documented result. The second, from a group of six players, is Anissem, a Mediterranean coastal city in 2050 that may once have been Messina. Desertification pushes it to turn unused land into zones of life, and it admits newcomers without papers or money if they bring knowledge the community lacks. Its proposed governance model is called OASES, for Organised Adaption and Solidarity Embedded in Society. The group worked through characters, each played by a participant: two migrants, an energy researcher, a student, a former mayor and a psychologist. They produced a wiki page for the city, a presentation framed as a 2048 forum, and about a dozen forum posts. The concept and invitation threads were written before the event, so this note does not report participant feedback.
 
 ## Sources
 

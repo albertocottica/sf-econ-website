@@ -5,8 +5,6 @@ stage: seedling
 status: working
 summary: "The name for how we work: complexity economic theory, speculative futures thinking and inclusive community-building, used together to help a place choose its economy."
 tags: [method]
-confirm:
-  - "Check that this description matches how the team would put it. Add the lineage of the term and a worked example."
 ---
 
 Generative ethnography is the name we use for our process. It brings together three strands that usually sit in separate rooms.

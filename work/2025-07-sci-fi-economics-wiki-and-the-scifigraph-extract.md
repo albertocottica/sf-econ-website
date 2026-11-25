@@ -14,9 +14,8 @@ source_label: "Edgeryders, What if we turned the sci-fi economics wiki into data
 tags: [showcase]
 summary: "A community wiki of economically minded science fiction, turned by an LLM extractor into a network of 25 works and 135 economic concepts."
 why_it_matters: "Proof that the wiki can become a linked graph of concepts and books. For writers it is a map of which ideas appear where, and which books share them."
-confirm:
-  - "The extraction run and its counts come from the later replies in the thread, which opens with the February 2024 plan. Confirm the public home of the scifigraph repository before presenting it as a finished tool."
 ---
+
 ## What it is
 
 The Science Fiction Economics wiki, "Economic Science Fiction: a selection of works and authors", is a community-maintained list on Edgeryders that covers authors such as Butler, Le Guin, Doctorow and Robinson. By February 2024 it ran to about 5,000 words and was hard to navigate, so Alberto Cottica proposed treating it as data. The scifigraph extractor is that idea carried out.

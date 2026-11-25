@@ -14,13 +14,11 @@ featured: false
 source_url: "https://arbutus.comses.net/users/1813"
 source_label: "CoMSES, J M Applegate"
 tags: [showcase]
-confirm:
-  - "Link each model page and the General Housing Model."
 ---
 
 ## What it is
 
-A set of agent-based models published on CoMSES, the open repository for computational models: Strategy with Externalities, Empathy and Power and Emergent Firms. The General Housing Model has since joined them.
+CoMSES, the open repository for computational models, holds three of J M Applegate's agent-based models: "Strategy with Externalities", "Empathy and Power", and "Emergent Firms". The General Housing Model has since joined them.
 
 ## What we did
 

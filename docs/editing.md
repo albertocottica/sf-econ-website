@@ -52,7 +52,7 @@ Body text in Markdown.
 - Start each new note from the matching file in `templates/`. Copy it, rename it, and fill it in.
 - Put quotation marks around any value that contains a colon.
 - Put quotation marks around dates such as `accessed: "2026-11-02"`. Unquoted dates are parsed into date objects and render as a long time string.
-- A note with no `layout` uses `note.njk`, which shows the title, badges, facts, body, backlinks, and any `confirm` list.
+- A note with no `layout` uses `note.njk`, which shows the title, badges, facts, body, and backlinks.
 - Section index pages (`work/index.md`, `people/index.md`, `heritage/index.md`) set their own `layout` and `permalink`.
 
 ### Front matter rules
@@ -76,7 +76,6 @@ These fields work on any note.
 | `tags` | A list such as `[showcase]`, `[principal]`, or `[copy]` |
 | `featured` | `true` shows a work note as a card in the landing page's Our work section |
 | `thread` | Optional Edgeryders discussion link, shown at the foot of the page |
-| `confirm` | A list of open questions, shown in a dashed "To confirm" box |
 | `layout` | Override the template. Section indexes set this |
 | `permalink` | Override the output path. Section indexes set this |
 
@@ -185,8 +184,6 @@ source_label: "Edgeryders, Designer economies"
 summary: "One or two sentences."
 why_it_matters: "Why a partner should care."
 tags: [showcase]
-confirm:
-  - "Attendance is not in the source."
 ---
 ```
 
@@ -195,7 +192,7 @@ Body sections, in this order: `## What it is`, `## What we did`, `## How it turn
 Things to know:
 
 - **Missing link.** Leave `source_url` empty and add the tag `needs-url`. The card shows "link to add" and the page shows "Original link to be added".
-- **Open questions.** Put anything unverified in `confirm`. Delete the list when it is resolved.
+- **Open questions.** Work that is unfinished, or a gap to chase, goes in `brief/open-questions.md`, which is never published. Do not put notes addressed to the team in the note itself: everything in a published note reaches the reader. A caveat the reader needs, such as what a source fails to say, belongs in the body.
 - **Filter groups.** The Our work page groups kinds into Models and software, Games and worlds, Events, Teaching, Papers and reports, and Partnerships. The mapping is the `groupOf` table in `.site/layouts/work.njk`. Add new kinds there.
 - **Kinds in use.** `model`, `simulation`, `data`, `game`, `world`, `event`, `festival`, `residency`, `seminar`, `webinars`, `workshop`, `talk`, `school`, `teaching`, `publication`, `report`, `research`, `collective`, `partnership`.
 - **Illustration.** Each entry shows an SVG named after the file. Run `python3 .site/tools/make-work-images.py` after adding a note. See [Work illustrations](maintaining.md#work-illustrations).
@@ -528,5 +525,6 @@ Folder: `templates/`. Starter notes for each content type. These files are not p
 - [ ] The page renders at the expected URL and links resolve.
 - [ ] Titles are unique. Use a folder-qualified wikilink if two notes must share a title.
 - [ ] Dates are quoted.
-- [ ] `confirm:` lists and `needs-url` tags are intentional.
+- [ ] No notes addressed to the team, such as "ask Alberto", appear in a published note; those belong in `brief/open-questions.md`.
+- [ ] `needs-url` tags are intentional.
 - [ ] Heritage names, `next`/`edge_label` lengths, and `step` numbers are correct.

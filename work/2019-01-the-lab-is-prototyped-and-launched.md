@@ -14,13 +14,11 @@ featured: true
 source_url: "https://boingboing.net/2019/10/18/sci-fi-economics-lab.html"
 source_label: "Boing Boing, Crowdfunding a symposium on a green, postcapitalist economics in Brussels, Nov 11"
 tags: [showcase]
-confirm:
-  - "The Boing Boing page did not load. Only its title and date came through the search. The Reclaiming Utopia workshop with Extinction Rebellion comes from the brief."
 ---
 
 ## What it is
 
-A symposium on a green, postcapitalist economics in Brussels on 11 November 2019, announced with a crowdfunding campaign. A video of the event is titled Creating a greener economic system through science fiction with Cory Doctorow. The Lab's Edgeryders page describes it as an initiative to get economics out of its box, on the premise that it is easier to imagine the end of the world than the end of capitalism.
+On 11 November 2019, Edgeryders ran a symposium in Brussels on a green, postcapitalist economics, announced with a crowdfunding campaign. A video of the event is titled Creating a greener economic system through science fiction with Cory Doctorow. The Lab's Edgeryders page describes it as an initiative to get economics out of its box, on the premise that it is easier to imagine the end of the world than the end of capitalism.
 
 ## What we did
 

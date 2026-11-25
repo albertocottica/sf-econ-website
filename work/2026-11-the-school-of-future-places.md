@@ -14,13 +14,11 @@ featured: false
 source_url: "https://scifieconomicslab.net/school-of-complexity-economics-for-human-development/"
 source_label: "scifieconomicslab.net, The school of future places"
 tags: [showcase]
-confirm:
-  - "No faculty, fees or application process are published. Invitations are requested at hello@scifieconomicslab.net. Confirm the programme with the Lab before quoting it."
 ---
 
 ## What it is
 
-A week-long residential school, the School of Complexity Economics for Place-Based Human Development, listed on the Lab's site as The school of future places. It runs from 17 to 24 October 2027 in the province of Messina, Sicily, by invitation only.
+The Lab's site lists a week-long residential school, the School of Complexity Economics for Place-Based Human Development, under the name The school of future places. It runs from 17 to 24 October 2027 in the province of Messina, Sicily, by invitation only.
 
 It is about the complexity paradigm in economics and how it bears on human development, freedom, community and beauty. The syllabus covers new approaches, narratives, indicators, modelling techniques and policy options. Science fiction and other creative practices are used to build an intuitive feel for life under a changed economic regime.
 
@@ -30,7 +28,7 @@ The Lab is organising it with Eutopia, the policy research and training hub it j
 
 ## How it turned out
 
-It has not taken place yet. The page publishes no faculty, fees or detailed schedule.
+It has not taken place yet. The page gives the location and the dates but not the faculty, the fees or a detailed schedule.
 
 ## Sources
 

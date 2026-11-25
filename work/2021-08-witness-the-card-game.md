@@ -14,13 +14,11 @@ featured: false
 source_url: "https://edgeryders.eu/t/witness-the-internet-futures-edition-thinking-out-loud-about-the-bigger-picture/16108"
 source_label: "Edgeryders, Witness: the Internet Futures Edition"
 tags: [showcase]
-confirm:
-  - "The brief says the first test round was in September. The playtest post found describes a session in Berlin on 29 November 2021. Reconcile the dates."
 ---
 
 ## What it is
 
-A card game in the world of Witness, developed in public on Edgeryders. A post of 14 August 2021 sets out an Internet Futures Edition: live-streamed tournaments that ask how internet technologies might work in alternative economies and societies, and what the Internet should do for humanity.
+Edgeryders developed the game in public, in the world of Witness. A post of 14 August 2021 sets out an Internet Futures Edition: live-streamed tournaments that ask how internet technologies might work in alternative economies and societies, and what the Internet should do for humanity.
 
 ## What we did
 

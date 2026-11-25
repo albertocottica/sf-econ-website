@@ -14,13 +14,11 @@ featured: false
 source_url: "https://www.bohrium.com/paper-details/beyond-the-pyramid-alternative-formal-hierarchical-structures-and-team-performance/812756301175062528-6685"
 source_label: "Beyond the Pyramid: Alternative Formal Hierarchical Structures and Team Performance"
 tags: [showcase]
-confirm:
-  - "The abstract could not be read (the Bohrium page sits behind a bot check). Add findings from the publisher page. The file name says 2019 but the journal issue is August 2020."
 ---
 
 ## What it is
 
-A peer-reviewed article titled Beyond the Pyramid: Alternative Formal Hierarchical Structures and Team Performance, by Ned Wellman, J M Applegate, John Harlow and Erik W. Johnston. It appeared in the Academy of Management Journal, volume 63, issue 4 (August 2020), pages 997 to 1027. DOI: 10.5465/amj.2017.1475.
+Ned Wellman, J M Applegate, John Harlow and Erik W. Johnston published "Beyond the Pyramid: Alternative Formal Hierarchical Structures and Team Performance" in the Academy of Management Journal, volume 63, issue 4 (August 2020), pages 997 to 1027.
 
 ## What we did
 

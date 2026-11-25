@@ -18,7 +18,7 @@ tags: [showcase]
 
 ## What it is
 
-A warmup post for the Lab's 2020 programme with two activities: a seminar on a zero-growth Goodwin model, with notes online, and an overhaul of the wiki of selected economics-themed science fiction.
+The Lab opened 2020 with a warmup post describing two activities: a seminar on a zero-growth Goodwin model, with notes online, and an overhaul of the wiki of selected economics-themed science fiction.
 
 ## What we did
 

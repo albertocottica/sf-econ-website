@@ -18,7 +18,7 @@ tags: [showcase]
 
 ## What it is
 
-A one-hour workshop on Wednesday 18 September 2024 at the Piper Writers House on the Tempe campus, with a livestream, hosted by the Lincoln Center for Applied Ethics and the ASU Worldbuilding Initiative. It was free and open to the public.
+The Lincoln Center for Applied Ethics and the ASU Worldbuilding Initiative hosted a one-hour workshop on Wednesday 18 September 2024 at the Piper Writers House on the Tempe campus, with a livestream. It was free and open to the public.
 
 ## What we did
 
@@ -26,7 +26,7 @@ J M Applegate and Andrew Dana Hudson led it. They started from a core problem in
 
 ## How it turned out
 
-The event page records the programme and no results.
+The event page records the programme only, with no account of how the session went.
 
 ## Sources
 

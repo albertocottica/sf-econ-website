@@ -92,7 +92,7 @@ Ties break by file path, so resolution is deterministic across machines. This is
 - `missing` lists unresolved `[[links]]` for the build warning.
 - `duplicateTitles` lists title collisions that folder priority cannot settle.
 
-Front matter is scanned for wikilinks as well as the body, so a link inside `summary` or `confirm` still produces a backlink.
+Front matter is scanned for wikilinks as well as the body, so a link inside `summary` still produces a backlink.
 
 ## Routing and permalinks
 
@@ -196,7 +196,7 @@ The trigger logic stays in `.site/assets/js/ticker.js`.
 |---|---|---|
 | `base.njk` | `site`, `palettes`, `build`, `page` | The shared shell, navigation, footer, palette boot script |
 | `landing.njk` | `vault`, `funders`, `palettes`, `site`, `tickerData`, `method`, `heritage` | The full landing page |
-| `note.njk` | The note's front matter and body, `page` | A single note page with badges, facts, body, confirm box, backlinks |
+| `note.njk` | The note's front matter and body, `page` | A single note page with badges, facts, body, backlinks |
 | `standalone.njk` | The note's front matter and body, `page` | A plain page with an optional image, title, and body. No badges, facts, crumbs, or backlinks. Used for pages kept at a legacy URL |
 | `work.njk` | `vault.work` | The filterable work grid |
 | `people.njk` | `vault.people` | The grouped people directory |

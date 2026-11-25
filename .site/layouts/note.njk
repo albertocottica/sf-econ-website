@@ -34,7 +34,6 @@ layout: base.njk
   </dl>
   {% endif %}
   <div class="body">{{ content | safe }}</div>
-  {% if confirm and confirm.length %}<aside class="confirm"><h2>To confirm</h2><ul>{% for c in confirm %}<li>{{ c }}</li>{% endfor %}</ul></aside>{% endif %}
   {% if thread %}<p><a href="{{ thread }}">Discuss this note on Edgeryders</a></p>{% endif %}
   {% if bl.length %}<aside class="back"><h2 style="font-size:20px">Linked from</h2><ul>
     {% for b in bl %}<li><a href="{{ b.url | rel(page.url) }}">{{ b.title }}</a></li>{% endfor %}

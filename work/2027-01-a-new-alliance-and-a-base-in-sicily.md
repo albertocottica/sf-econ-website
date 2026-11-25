@@ -14,8 +14,6 @@ featured: false
 source_url: "https://scifieconomicslab.net/an-alliance"
 source_label: "scifieconomicslab.net, A new alliance"
 tags: [showcase]
-confirm:
-  - "The page names no individuals. Check whether Eutopia has a site of its own, and its legal form."
 ---
 
 ## What it is

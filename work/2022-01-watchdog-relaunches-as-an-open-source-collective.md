@@ -14,9 +14,8 @@ source_url: "https://yudhanjaya.com/docs/experiments/watchdog-sri-lanka/"
 source_label: "Yudhanjaya, Watchdog Sri Lanka"
 tags: [showcase]
 why_it_matters: "Evidence that a small team can work directly on a country's live problems with tools anyone can use, and that its data gets picked up by newsrooms."
-confirm:
-  - "The brief says Sri Lanka's Ministry of Health used Watchdog software. No source we found says so, so leave it out. The page we cited says over 200,000 users in three months in 2019, while Rest of World reports about 52,000 users in 90 days. Check which is right before quoting either."
 ---
+
 ## What it is
 
 Watchdog was co-founded in April 2019, two days after the Easter Sunday bombings, by Yudhanjaya Wijeratne with Bhanuka Harischandra, Nisal Periyapperuma, Ragulan Ketheeswaran and Safra Anver. The team built a fact-checking app in 36 hours and within three months had 25 to 30 volunteers and over 200,000 users.

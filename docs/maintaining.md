@@ -168,7 +168,7 @@ Everything in `.site/_data/` is available to the templates.
 |---|---|---|
 | `base.njk` | Every page | Head, meta, palette boot script, header navigation, footer, palette switcher |
 | `landing.njk` | `index.md` | Hero, town deck, Why we exist, funders, method flowchart, Our work, heritage teaser, Work with us, people strip |
-| `note.njk` | Default for notes | Title, badges, facts, body, confirm box, backlinks |
+| `note.njk` | Default for notes | Title, badges, facts, body, backlinks |
 | `standalone.njk` | Notes kept at a legacy URL | Optional image with credit, title, body. No badges, facts, crumbs, or backlinks |
 | `work.njk` | `work/index.md` | The filterable work grid |
 | `people.njk` | `people/index.md` | The grouped team directory |
@@ -248,7 +248,8 @@ Before you publish:
 - [ ] Open the landing page and run the town for a few seconds. The ticker should speak and the charts should move.
 - [ ] Scroll through How we work. The chart should build step by step and the last caption should end the section cleanly.
 - [ ] Check People, Our work, and Heritage in a narrow browser window.
-- [ ] Search for open `confirm:` lists and `needs-url` tags and decide whether each can ship.
+- [ ] Skim `brief/open-questions.md` and decide whether any item is now resolved.
+- [ ] Check `needs-url` tags and decide whether each can ship.
 - [ ] `site.json` has the right contact address and repository.
 - [ ] No orphaned build output. `_site/` is regenerated.
 

@@ -14,13 +14,11 @@ featured: false
 source_url: "https://edgeryders.eu/t/green-economies/17936"
 source_label: "Edgeryders, Green Economies"
 tags: [showcase]
-confirm:
-  - "The page gives no dates, venue or results. Ask Nadia Alter or Alberto Cottica what ran under this programme and when."
 ---
 
 ## What it is
 
-A programme page on Edgeryders, posted on 26 October 2022, with Nadia Alter and Alberto Cottica as contacts. It rests on three pillars. Storytelling: participants co-create an open-source fictional world through stories and art, with economies deliberately unlike today's. Science: economists and scientists translate what happens in that world into economic models. Immersive experience: professional artists make works that let people explore and test the world.
+Edgeryders posted a programme page for Green Economies on 26 October 2022, with Nadia Alter and Alberto Cottica as contacts. It describes the work in three strands. Participants co-create an open-source fictional world through stories and art, with economies deliberately unlike today's. Economists and scientists translate what happens in that world into economic models. Professional artists then make works that let people explore and test the world.
 
 Partners shown on the page are Nordisk Kulturfond, Climate-KIC, Blivande, Edgeryders and Fondazione di Comunita Messina.
 
@@ -30,7 +28,7 @@ Participants were invited to take charge of one or more of Witness's floating ar
 
 ## How it turned out
 
-The page records no dates, attendance or results. The same pairing of participants and economists was used at the Messina residency.
+The page gives no dates, no attendance figures and no results. The same pairing of participants and economists was used at the Messina residency.
 
 ## Sources
 

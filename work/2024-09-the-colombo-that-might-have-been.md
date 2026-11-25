@@ -13,13 +13,12 @@ source_url: "https://new.watchdog.team/article/the-colombo-that-might-have-been"
 source_label: "Watchdog, The Colombo That Might Have Been"
 tags: [showcase]
 summary: "A near one-to-one replica of Colombo, with over a million virtual citizens, built in Cities: Skylines to test the first two phases of a 2.78 trillion rupee transport plan before anyone builds it."
-why_it_matters: "The clearest proof for a mayor: a plan tested on a model of the real city, in a form that people in the room can look at and argue with."
-confirm:
-  - "The brief says the project was built with the University of Moratuwa as a teaching tool. The article only says Moratuwa experts were consulted. Treat the teaching claim as unconfirmed."
+why_it_matters: "The strongest proof for a mayor: a plan tested on a model of the real city, in a form that people in the room can look at and argue with."
 ---
+
 ## What it is
 
-A virtual Colombo built in Cities: Skylines by Watchdog in 2024. Topography, road network and land use follow the real city on an 8 by 8 metre grid, with land use drawn from official development plans centred on 2020. It holds 1,044,500 virtual citizens against a Colombo Municipal Council estimate of about 1,048,000, with about half living in the city and half commuting in along seven main arteries, as in reality. Citizens age, go to school, work and die, traffic follows Sri Lankan habits such as tuk-tuks and roadside parking, and public transport runs on real route data: three railway lines and six major bus routes. Against official figures the map's road layout, parks and water bodies match to over 99 percent, its length is 7,728 m against 7,780 m, and the vehicle ratio is calibrated to about 206 per 1,000 people.
+Watchdog built a virtual Colombo in Cities: Skylines in 2024. Topography, road network and land use follow the real city on an 8 by 8 metre grid, with land use drawn from official development plans centred on 2020. It holds 1,044,500 virtual citizens against a Colombo Municipal Council estimate of about 1,048,000, with about half living in the city and half commuting in along seven main arteries, as in reality. Citizens age, go to school, work and die, traffic follows Sri Lankan habits such as tuk-tuks and roadside parking, and public transport runs on real route data: three railway lines and six major bus routes. Against official figures the map's road layout, parks and water bodies match to over 99 percent, its length is 7,728 m against 7,780 m, and the vehicle ratio is calibrated to about 206 per 1,000 people.
 
 ## What we did
 
@@ -33,7 +32,7 @@ The article puts the numbers beside the picture. COMTRANS projected about 5 mill
 
 ## How it turned out
 
-The results are qualitative: how plans affect neighbourhoods, traffic flow and businesses, shown on a map people can look at. The article reports no measured outcome or formal adoption. The project page says it was widely shared, including on the Cities: Skylines forums and Hacker News.
+The results are qualitative: how plans affect neighbourhoods, traffic flow and businesses, shown on a map people can look at. The article reports no measured outcome and no formal adoption. The project page says it was widely shared, including on the Cities: Skylines forums and Hacker News.
 
 ## Sources
 

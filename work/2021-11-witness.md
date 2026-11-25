@@ -14,8 +14,6 @@ featured: true
 source_url: "https://scifieconomicslab.net/residency/"
 source_label: "scifieconomicslab.net"
 tags: [showcase]
-confirm:
-  - "The Lab site links the Witness world at scifiworldbuilding.netlify.app, which did not load for the reader tool. Check what it holds."
 ---
 
 ## What it is

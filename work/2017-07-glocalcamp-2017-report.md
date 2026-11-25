@@ -14,21 +14,19 @@ featured: false
 source_url: ""
 source_label: ""
 tags: [showcase, needs-url]
-confirm:
-  - "No page for the report could be found. Add its link."
 ---
 
 ## What it is
 
-A personal report by Azzurra Spirito on GlocalCamp 2017 in Barcelona, a gathering of the CivicWise community.
+GlocalCamp 2017 brought the CivicWise community to Barcelona to share projects and methods.
 
 ## What we did
 
-Azzurra attended and wrote it up.
+Azzurra Spirito took part and wrote a first-person report on it.
 
 ## How it turned out
 
-The report has not been located yet.
+No public copy of the report has been found, so this entry links to none.
 
 ## Sources
 

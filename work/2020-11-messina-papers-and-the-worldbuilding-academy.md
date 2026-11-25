@@ -14,12 +14,11 @@ source_label: "Edgeryders, The Worldbuilding Academy"
 tags: [showcase]
 summary: "A documented case of a Sicilian foundation that built about 120 enterprises around social goals, plus the launch of an open-source academy where writers and economists imagine the future of economics."
 why_it_matters: "A real place, documented as an economy: who owns what, what it earned and what it replaced. This is the pattern the Lab wants to repeat for other towns."
-confirm:
-  - "All figures are the foundation's own, as given in the paper and webinar, and have not been independently checked. The paper gives two different purchase subsidies for the social housing project (75 percent in the text, 80 percent in the webinar). Ask Fondazione di Comunita Messina which is right. Add the Worldbuilding Academy results."
 ---
+
 ## What it is
 
-Two linked pieces of work from autumn 2020. The first is a set of papers on the Messina Advanced Social District, a cluster of enterprises around Fondazione di Comunita di Messina (FdCM), published under CC BY 4.0 with support from EIT Climate-KIC. Alberto Cottica wrote the introduction and conducted the conversation, Nadia El-Imam wrote the premises, and FdCM's Gaetano Giunta and Giacomo Pinaffo explained the cluster in a webinar on 8 September 2020. The second is the Worldbuilding Academy, an open-source laboratory that brings science fiction writers and economists together, introduced in a webinar on 7 December 2020.
+Autumn 2020 produced two linked pieces of work. The first is a set of papers on the Messina Advanced Social District, a cluster of enterprises around Fondazione di Comunita di Messina (FdCM), published under CC BY 4.0 with support from EIT Climate-KIC. Alberto Cottica wrote the introduction and conducted the conversation, Nadia El-Imam wrote the premises, and FdCM's Gaetano Giunta and Giacomo Pinaffo explained the cluster in a webinar on 8 September 2020. The second is the Worldbuilding Academy, an open-source laboratory that brings science fiction writers and economists together, introduced in a webinar on 7 December 2020.
 
 ## What we did
 
@@ -33,7 +32,7 @@ The paper's conceptual claims are the part economists will want to argue with. H
 
 ## How it turned out
 
-The papers and webinar recording are public, and the 2020 paper describes FdCM as recognised by the OECD, UNOPS and WHO as one of the most interesting cases in welfare and local development experimentation. The foundation's own recognitions page, read in 2026, lists different bodies: REVES, the European network of cities and regions for the social economy, which called it one of the most interesting case studies in Europe; the OECD's LEED programme; the European federation of ethical and alternative banks, FEBEA; and the Global Alliance for Banking on Values, which chose it as the only Italian case among 23 worldwide. A 2025 interview on the Italian labour ministry's site adds that the foundation won the Premio Innovazione Sociale in 2025, has supported more than 260 social and green enterprises, and helped about 650 people move out of shantytowns into homes they chose, nearly half owner-occupied. Those later figures are larger than the 2020 ones above, and they are the foundation's own. The Worldbuilding Academy source is an announcement and reports no results. The cluster became the field visit on day one of the 2024 residency and the real-world anchor of [[2025-03-the-great-retrofit-world|The Great Retrofit]].
+The papers and webinar recording are public, and the 2020 paper describes FdCM as recognised by the OECD, UNOPS and WHO as one of the most interesting cases in welfare and local development experimentation. The foundation's own recognitions page, read in 2026, lists different bodies: REVES, the European network of cities and regions for the social economy, which called it one of the most interesting case studies in Europe; the OECD's LEED programme; the European federation of ethical and alternative banks, FEBEA; and the Global Alliance for Banking on Values, which chose it as the only Italian case among 23 worldwide. A 2025 interview on the Italian labour ministry's site adds that the foundation won the Premio Innovazione Sociale in 2025, has supported more than 260 social and green enterprises, and helped about 650 people move out of shantytowns into homes they chose, nearly half owner-occupied. Those later figures are larger than the 2020 ones above, and they are the foundation's own. The Worldbuilding Academy source is an announcement only, and it does not say what came of the academy. The cluster became the field visit on day one of the 2024 residency and the real-world anchor of [[2025-03-the-great-retrofit-world|The Great Retrofit]].
 
 ## Sources
 

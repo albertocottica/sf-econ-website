@@ -14,12 +14,11 @@ summary: "A near-future Messina written up as if from 2050: a ten-year plan to r
 period: "Made 6 to 9 May 2024, published Nov 2024 to Mar 2025"
 who: "A residency group of eight, led in the write-up by Alberto Cottica; Ha-Joon Chang joined for the first two days"
 why_it_matters: "A worked example of a local policy with its money, its safeguards and its losers spelled out before anyone builds it. This is the kind of thing a mayor can read and argue with."
-confirm:
-  - "The start page lists the group by forum handle only. Add real names with each person's consent. The model exists only as an HTML export of a Jupyter notebook (GreatRetroFitV2.html, shared on the forum 19 Nov 2024); no code repository is listed."
 ---
+
 ## What it is
 
-A fictional but carefully costed future for Messina, Sicily, written as if looking back from 2050. It is one group's output from the Science Fiction Economics Residency (6 to 9 May 2024) and it is published on Edgeryders as a set of linked pages: a start page, a timeline, a policy page and profiles of invented institutions. The group was eight people, listed on the start page by forum handle, and Ha-Joon Chang worked with them on the first two days.
+Messina, Sicily, gets a fictional but carefully costed future, written as if looking back from 2050. It is one group's output from the Science Fiction Economics Residency (6 to 9 May 2024) and it is published on Edgeryders as a set of linked pages: a start page, a timeline, a policy page and profiles of invented institutions. The group was eight people, listed on the start page by forum handle, and Ha-Joon Chang worked with them on the first two days.
 
 The world's central idea is a new kind of company, a for-benefit firm that reports against a quintuple bottom line: surplus (not profit), people, planet, beauty and truth, meaning that it shares what it knows. Its main example is Priu, a cooperative of construction workers whose name is a Sicilian word for joy or satisfaction.
 
@@ -35,7 +34,7 @@ Each mechanism answers a failure someone would raise at a council meeting: who p
 
 ## How it turned out
 
-The start page was posted on 12 May 2024, and the group shared its simplified model as an exported Jupyter notebook on the forum on 17 to 19 November 2024. It is intended both as a backdrop for science fiction and as a possible tool for ex ante evaluation of policies. The target is described in the world as largely achieved, with the work concentrated in low-income and dilapidated buildings. That is fiction, and the policy page says so by omission: it gives no quantified emissions or energy savings, and the simulation behind it assumes identical buildings and is simplified. Nobody has adopted the policy. The residency's stated aim was to test whether science-fictional futures can help evaluate candidate public policies beforehand, and this is the Lab's clearest worked example of that test.
+The start page was posted on 12 May 2024, and the group shared its simplified model as an exported Jupyter notebook on the forum on 17 to 19 November 2024. It is intended both as a backdrop for science fiction and as a possible tool for ex ante evaluation of policies. The target is described in the world as largely achieved, with the work concentrated in low-income and dilapidated buildings. That is fiction, and the policy page leaves it unquantified: it gives no emissions or energy savings, and the simulation behind it assumes identical buildings and is simplified. Nobody has adopted the policy. The residency's stated aim was to test whether science-fictional futures can help evaluate candidate public policies beforehand, and this is the Lab's most fully worked example of that test.
 
 ## Sources
 
